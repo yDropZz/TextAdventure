@@ -1,0 +1,14 @@
+C:\Users\b25chrli\TextAdventure\bin\Debug\net9.0\TextAdventure.exe
+C:\Users\b25chrli\TextAdventure\bin\Debug\net9.0\TextAdventure.deps.json
+C:\Users\b25chrli\TextAdventure\bin\Debug\net9.0\TextAdventure.runtimeconfig.json
+C:\Users\b25chrli\TextAdventure\bin\Debug\net9.0\TextAdventure.dll
+C:\Users\b25chrli\TextAdventure\bin\Debug\net9.0\TextAdventure.pdb
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.AssemblyInfoInputs.cache
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.AssemblyInfo.cs
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.csproj.CoreCompileInputs.cache
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.dll
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\refint\TextAdventure.dll
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.pdb
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\TextAdventure.genruntimeconfig.cache
+C:\Users\b25chrli\TextAdventure\obj\Debug\net9.0\ref\TextAdventure.dll
