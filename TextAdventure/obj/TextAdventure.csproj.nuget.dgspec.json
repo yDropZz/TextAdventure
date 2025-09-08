@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Blodr\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj": {}
+    "C:\\Users\\a25tribl\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Blodr\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj": {
+    "C:\\Users\\a25tribl\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Blodr\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
+        "projectUniqueName": "C:\\Users\\a25tribl\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
         "projectName": "TextAdventure",
-        "projectPath": "C:\\Users\\Blodr\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
-        "packagesPath": "C:\\Users\\Blodr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Blodr\\Documents\\GitHub\\TextAdventure\\TextAdventure\\obj\\",
+        "projectPath": "C:\\Users\\a25tribl\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
+        "packagesPath": "C:\\Users\\a25tribl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\a25tribl\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Blodr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\a25tribl\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

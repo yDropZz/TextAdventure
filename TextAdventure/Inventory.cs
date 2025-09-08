@@ -111,7 +111,7 @@ public class Inventory
             case "oaklog":
                 oaklog += amount;
                 break;
-            case "darkoak":
+            case "darkoaklog":
                 darkoaklog += amount;
                 break;
             case "flintdagger":
@@ -227,7 +227,7 @@ public class Inventory
                return sprucelog;
             case "oaklog":
                 return oaklog;
-            case "darkoak":
+            case "darkoaklog":
                 return darkoaklog;
             case "flintdagger":
                 return flintdagger;

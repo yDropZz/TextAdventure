@@ -3,32 +3,123 @@ public class Program
 {
     public static void Main()
     {
-
         Mining mining = new Mining();
         Inventory inventory = new Inventory();
         Woodcutting woodcutting = new Woodcutting();
-        
+        Player player = new Player();
+        NewGame(player);
 
-            while (true)
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. Adventure");
+            Console.WriteLine("2. Mine");
+            Console.WriteLine("3. Woodcutting");
+            Console.WriteLine("4. Inventory");
+            Console.WriteLine("5. Town");
+            Console.WriteLine("6. Rest");
+            Console.WriteLine("7. Help");
+            Console.WriteLine("8. Exit");
+            
+            string input = Console.ReadLine().Trim().ToLower();
+            Console.WriteLine(input);
+            if (input == "1" || input == "adventure")
             {
-                string input = Console.ReadLine();
-                if (input == "1")
-                {
-                    mining.RollMiningTable(inventory);
-                }
-                else if (input == "2")
-                {
-                    woodcutting.RollWoodcuttingTable(inventory);
-                }
-                else if (input == "3")
-                    break;
+                
             }
+            else if (input == "2" || input == "mine")
+            {
+                mining.Mine(inventory);
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Mine again?");
+                    Console.WriteLine("1. Yes");
+                    Console.WriteLine("2. No"); 
+                    input = Console.ReadLine().Trim().ToLower();
+
+                    if (input == "1" || input == "yes")
+                    {
+                        mining.Mine(inventory);
+                    }
+                    else if (input == "2" || input == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("You did not enter a valid input");
+                        Console.ReadKey();
+                    }
+                }
+            }
+            else if (input == "3" || input == "woodcutting")
+            {
+                woodcutting.CutWood(inventory);
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Cut again?");
+                    Console.WriteLine("1. Yes");
+                    Console.WriteLine("2. No"); 
+                    input = Console.ReadLine().Trim().ToLower();
+
+                    if (input == "1" || input == "yes")
+                    {
+                        woodcutting.CutWood(inventory);
+                    }
+                    else if (input == "2" || input == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("You did not enter a valid input");
+                        Console.ReadKey();
+                    }
+                }
+            }
+            else if (input == "4" || input == "inventory")
+            {
+                
+            }
+            else if (input == "5" || input == "town")
+            {
+                
+            }
+            else if (input == "6" || input == "rest")
+            {
+                
+            }
+            else if (input == "7" || input == "help")
+            {
+                
+            }
+            else if (input == "8" || input == "exit")
+            {
+                
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("You did not enter a valid input");
+                Console.ReadKey();
+            }
+
+        }
+    }
+
+    private static void NewGame(Player player)
+    {
+        Console.Write("Enter your name: ");
+        string input = Console.ReadLine();
+        player.Name = input;
+        Console.Clear();
         
-
-
-         //tatic Player player = new Player();
-
-
-
+        Console.WriteLine($"{player.Name} wakes up in a clearing, forest all around them.");
+        Console.ReadKey();
     }
 }

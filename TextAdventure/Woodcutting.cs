@@ -5,11 +5,11 @@
 
 public class Woodcutting
 {
-    public int woodcuttingXP = 0;
+    private int woodcuttingXP = 0;
     private int woodcuttingXPReq = 20;
     private int woodcuttingLevel = 1;
 
-    public void AddWoodcuttingExperience(int amount)
+    private void AddWoodcuttingExperience(int amount)
     {
         woodcuttingXP += amount;
 
@@ -19,33 +19,19 @@ public class Woodcutting
             woodcuttingLevel++;
 
             woodcuttingXPReq += 4;
-            Console.WriteLine("You leveled up! You are now level: " + woodcuttingLevel);
+            Console.WriteLine("You leveled up wood cutting! You are now level: " + woodcuttingLevel);
         }
     }
-    
-/*
-    public void Update()
+    public void CutWood(Inventory inventory)
     {
-        while (true)
-        {
-            Task.Delay(1000).Wait();
-            x++;
-            Console.WriteLine(x + " is now");
-        }
-    }*/
-
-    public void Mine()
-    {
-        Console.Write("You go the mines and mine and return with: ");
-        
-        Console.Write("");
-        
-        
+        Console.Clear();
+        Console.Write("You enter the forest, after awhile you return with: ");
+        RollWoodcuttingTable(inventory);
     }
 
-    public void RollWoodcuttingTable(Inventory inventory)
+    private void RollWoodcuttingTable(Inventory inventory)
     {
-        int rolls = 1;
+        int rolls = 1000;
         
             
             if (inventory.GetItem("stoneaxe") == 1)
@@ -139,19 +125,18 @@ public class Woodcutting
             // UI STUFF BELOW
             // Wood
             //-------------------------------------------------
-
-            Console.Clear();
+        
             Console.WriteLine($"you got {tempLog} log ");
             Console.WriteLine($"you got {tempBirch} birch ");
             Console.WriteLine($"you got {tempSpruce} spruce ");
             Console.WriteLine($"you got {tempOak} oak ");
             Console.WriteLine($"you got {tempDarkoak} dark oak ");
             
-            inventory.AddItem("flint", tempLog);
-            inventory.AddItem("stone", tempBirch);
-            inventory.AddItem("copper", tempSpruce);
-            inventory.AddItem("iron", tempOak);
-            inventory.AddItem("mithril", tempDarkoak);
+            inventory.AddItem("log", tempLog);
+            inventory.AddItem("birchlog", tempBirch);
+            inventory.AddItem("sprucelog", tempSpruce);
+            inventory.AddItem("oaklog", tempOak);
+            inventory.AddItem("darkoaklog", tempDarkoak);
 
             int woodcuttingExperienceToReceive = (tempLog * 1) + (tempBirch * 2) + (tempSpruce * 3) + (tempOak * 4) +
                                               (tempDarkoak * 5);
@@ -164,10 +149,9 @@ public class Woodcutting
             
             Console.WriteLine("");
             
-            Console.WriteLine($"You have a total of: {inventory.GetItem("log")} logs, {inventory.GetItem("stone")} birch logs, {inventory.GetItem("sprucelog")} spruce logs, {inventory.GetItem("oaklog")} oak logs, {inventory.GetItem("darkoaklog")}  dark oak logs");
+            Console.WriteLine($"You have a total of: {inventory.GetItem("log")} logs, {inventory.GetItem("birchlog")} birch logs, {inventory.GetItem("sprucelog")} spruce logs, {inventory.GetItem("oaklog")} oak logs, {inventory.GetItem("darkoaklog")}  dark oak logs");
             Console.WriteLine(woodcuttingXP + "/" + woodcuttingXPReq);
-        
-        
+            Console.ReadKey();
     }
 
 

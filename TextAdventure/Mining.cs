@@ -5,11 +5,11 @@
 
 public class Mining
 {
-    public int miningXP = 0;
+    private int miningXP = 0;
     private int miningXPReq = 20;
     private int miningLevel = 1;
 
-    public void AddMiningExperience(int amount)
+    private void AddMiningExperience(int amount)
     {
         miningXP += amount;
 
@@ -19,31 +19,17 @@ public class Mining
             miningLevel++;
 
             miningXPReq += 4;
-            Console.WriteLine("You leveled up! You are now level: " + miningLevel);
+            Console.WriteLine("You leveled up mining! You are now level: " + miningLevel);
         }
     }
-    
-/*
-    public void Update()
+    public void Mine( Inventory inventory)
     {
-        while (true)
-        {
-            Task.Delay(1000).Wait();
-            x++;
-            Console.WriteLine(x + " is now");
-        }
-    }*/
-
-    public void Mine()
-    {
-        Console.Write("You go the mines and mine and return with: ");
-        
-        Console.Write("");
-        
-        
+        Console.Clear();
+        Console.Write("You enter the mines, after awhile you return with: ");
+        RollMiningTable(inventory);
     }
 
-    public void RollMiningTable(Inventory inventory)
+    private void RollMiningTable(Inventory inventory)
     {
         int rolls = 1;
         
@@ -209,8 +195,8 @@ public class Mining
             // UI STUFF BELOW
             // Ores
             //-------------------------------------------------
-
-            Console.Clear();
+            
+            Console.WriteLine("");
             Console.WriteLine($"you got {tempFlint} flint ");
             Console.WriteLine($"you got {tempStone} stone ");
             Console.WriteLine($"you got {tempCopper} copper ");
@@ -226,6 +212,7 @@ public class Mining
             // Gems
             //--------------------------------------------------
             
+            Console.WriteLine("");
             Console.WriteLine($"you got {tempAmethyst} amethyst ");
             Console.WriteLine($"you got {tempSapphire} sapphire ");
             Console.WriteLine($"you got {tempTopaz} topaz ");
@@ -252,8 +239,7 @@ public class Mining
             Console.WriteLine($"You have a total of: {inventory.GetItem("flint")} flint, {inventory.GetItem("stone")} stone, {inventory.GetItem("copper")} copper, {inventory.GetItem("iron")} iron, {inventory.GetItem("mithril")}  mithril");
             Console.WriteLine($"You have a total of: {inventory.GetItem("amethyst")} amethyst, {inventory.GetItem("sapphire")} sapphire, {inventory.GetItem("topaz")} topaz, {inventory.GetItem("ruby")} ruby, {inventory.GetItem("diamond")}  diamond");
             Console.WriteLine(miningXP + "/" + miningXPReq);
-        
-        
+            Console.ReadKey();
     }
 
 

@@ -27,3 +27,18 @@ C:\Users\Blodr\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\Tex
 C:\Users\Blodr\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.pdb
 C:\Users\Blodr\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.genruntimeconfig.cache
 C:\Users\Blodr\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\ref\TextAdventure.dll
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.exe
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.deps.json
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.runtimeconfig.json
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.dll
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\bin\Debug\net9.0\TextAdventure.pdb
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.AssemblyInfoInputs.cache
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.AssemblyInfo.cs
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.csproj.CoreCompileInputs.cache
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.sourcelink.json
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.dll
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\refint\TextAdventure.dll
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.pdb
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\TextAdventure.genruntimeconfig.cache
+C:\Users\a25tribl\OneDrive - Högskolan i Skövde\Documents\GitHub\TextAdventure\TextAdventure\obj\Debug\net9.0\ref\TextAdventure.dll
