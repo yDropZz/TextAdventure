@@ -7,15 +7,18 @@ public class Program
         Inventory inventory = new Inventory();
         Woodcutting woodcutting = new Woodcutting();
         Player player = new Player();
-        NewGame(player);
+        //NewGame(player);
 
         while (true)
         {
+            
+            
             Console.Clear();
-            Console.WriteLine("What do you do?");
-            Console.WriteLine("1. Adventure");
-            Console.WriteLine("2. Mine");
-            Console.WriteLine("3. Woodcutting");
+            UI.ConsoleDefault();
+            UI.WriteLine("What do you do?");
+            UI.WriteLine("1. Adventure");
+            UI.WriteLine("2. Mine");
+            UI.WriteLine("3. Woodcutting");
             Console.WriteLine("4. Inventory");
             Console.WriteLine("5. Town");
             Console.WriteLine("6. Rest");
@@ -100,7 +103,7 @@ public class Program
             }
             else if (input == "8" || input == "exit")
             {
-                
+                Environment.Exit(0);
             }
             else
             {
