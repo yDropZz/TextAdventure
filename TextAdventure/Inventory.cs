@@ -284,10 +284,32 @@ public class Inventory
         }
         return 0;
     }
-    
-    public void Main()
+
+    public float GetWeaponValue()
     {
+        float value = 1;
+        if (GetItem("flintdagger") == 1)
+        {
+            value+=0.2f;
+            if (GetItem("stonemace") == 1)
+            {
+                value+=0.2f;
+                if (GetItem("copperspear") == 1)
+                {
+                    value+=0.2f;
+                    if (GetItem("ironsword") == 1)
+                    {
+                        value+=0.2f;
+                        if (GetItem("mithrillongsword") == 1)
+                        {
+                            value+=0.2f;
+                        }
+                    }
+                }
+            }
+        }
         
+        return value;
     }
 
 }

@@ -5,17 +5,37 @@ public class Entity
     private string name;
     public string Name { get => name; set => name = value; }
     private int hp;
+    public int HP { get => hp; set => hp = value; }
     private int hpMax;
+    public int HPMax { get => hpMax; set => hpMax = value; }
     private int melee;
+    public int Melee { get => melee; set => melee = value; }
     private int range;
+    public int Range { get => range; set => range = value; }
     private int magic;
+    public int Magic { get => magic; set => magic = value; }
     private bool isDead = false;
+    public bool IsDead { get => isDead; set => isDead = value; }
+    private int meleeDefence;
+    public int MeleeDefence { get => meleeDefence; set => meleeDefence = value; }
+    private int rangeDefence;
+    public int RangeDefence { get => rangeDefence; set => rangeDefence = value; }
+    private int magicDefence;
+    public int MagicDefence { get => magicDefence; set => magicDefence = value; }
+    
 
-    public void CalculateDamage()
+    public int CalculateDamage(string type, Player source, Enemy target, Inventory inventory)
     {
-        
-    }
+        if (type == "melee")
+        {
+            float x = (source.Melee * inventory.GetWeaponValue())/target.meleeDefence;
 
+            int y = (int)x;
+            return y;
+        }
+        return 0;
+    }
+    
     public void SetMaxHP(int amount)
     {
         hpMax = amount;
