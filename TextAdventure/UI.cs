@@ -5,12 +5,12 @@ public class UI
 
     public static void Write(string input)
     {
-        Console.Write("                         |" + input);
+        Console.Write("                         | " + input);
     }
     
     public static void WriteLine(string input)
     {
-        Console.WriteLine("                         |" + input);
+        Console.WriteLine("                         | " + input);
     }
 
     public static void ConsoleDefault()
@@ -27,12 +27,20 @@ public class UI
 
 //---------- Row 1 ------------
 
+        Console.Write("                                                                                              ");
+        Console.Write("Player (7/10)");
         Console.Write("                    ");
-        Console.Write("Player");
-        Console.Write("                    ");
-//--------- Row 2 -------------
         Console.WriteLine("");
-        Console.Write("                  ");
+//--------- Row 2 -------------
+        Console.Write("                                                                                              ");
+        Console.Write("『▮▮▮▮▮▮▮▯▯▯ 』");
+
+       Console.WriteLine("");
+//--------- Row 3 -------------
+        Console.WriteLine("");
+//--------- Row 4 -------------
+        Console.WriteLine("");
+        Console.Write("            ");
         Console.Write("⸕ Mining: 23 (15/35)⸕");
         Console.Write("                  ");
         Console.Write("✎ Woodcutting: 51 (48/108)✎");
@@ -41,8 +49,9 @@ public class UI
         Console.Write("                  ");
         Console.Write("✯ Magic: 12 (14/38)✯");
         Console.Write("                  ");
-        Console.WriteLine("↠ Range: 21 (37/56)↠");
-        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("↠ Range: 21 (37/56)↠ ");
+        Console.WriteLine("");
+        //Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.Write("                    ");
         Console.Write("");
 

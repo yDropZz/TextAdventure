@@ -1,13 +1,37 @@
 ﻿namespace TextAdventure;
 public class Program
 {
+    
+    
+    public static async void PlayIntroTest()
+    {
+        Console.Clear();
+        // AScii text generator credit: https://patorjk.com/software/taag/
+        
+        await Task.Delay(250);
+        Console.WriteLine(".___________. __________   ___ .___________.        ___       _______  ____    ____  _______ .__   __. .___________. __    __  .______       _______ ");
+        await Task.Delay(250);
+        Console.WriteLine("|           ||   ____\\  \\ /  / |           |       /   \\     |       \\ \\   \\  /   / |   ____||  \\ |  | |           ||  |  |  | |   _  \\     |   ____|");
+        await Task.Delay(250);
+        Console.WriteLine("`---|  |----`|  |__   \\  V  /  `---|  |----`      /  ^  \\    |  .--.  | \\   \\/   /  |  |__   |   \\|  | `---|  |----`|  |  |  | |  |_)  |    |  |__   ");
+        await Task.Delay(250);
+        Console.WriteLine("    |  |     |   __|   >   <       |  |          /  /_\\  \\   |  |  |  |  \\      /   |   __|  |  . `  |     |  |     |  |  |  | |      /     |   __|  ");
+        await Task.Delay(250);
+        Console.WriteLine("    |  |     |  |____ /  .  \\      |  |         /  _____  \\  |  '--'  |   \\    /    |  |____ |  |\\   |     |  |     |  `--'  | |  |\\  \\----.|  |____ ");
+        await Task.Delay(250);
+        Console.WriteLine("    |__|     |_______/__/ \\__\\     |__|        /__/     \\__\\ |_______/     \\__/     |_______||__| \\__|     |__|      \\______/  | _| `._____||_______|\n");
+
+        Console.ReadLine();
+            
+    }
     public static void Main()
     {
         Mining mining = new Mining();
         Inventory inventory = new Inventory();
         Woodcutting woodcutting = new Woodcutting();
         Player player = new Player();
-        //NewGame(player);
+        NewGame(player);
+        PlayIntroTest();
 
         while (true)
         {
@@ -15,15 +39,16 @@ public class Program
             
             Console.Clear();
             UI.ConsoleDefault();
-            UI.WriteLine("What do you do?");
+            UI.WriteLine("Well.. What's your next move!?");
+            UI.WriteLine("");
             UI.WriteLine("1. Adventure");
             UI.WriteLine("2. Mine");
             UI.WriteLine("3. Woodcutting");
-            Console.WriteLine("4. Inventory");
-            Console.WriteLine("5. Town");
-            Console.WriteLine("6. Rest");
-            Console.WriteLine("7. Help");
-            Console.WriteLine("8. Exit");
+            UI.WriteLine("4. Inventory");
+            UI.WriteLine("5. Town");
+            UI.WriteLine("6. Rest");
+            UI.WriteLine("7. Help");
+            UI.WriteLine("8. Exit");
             
             string input = Console.ReadLine().Trim().ToLower();
             Console.WriteLine(input);
@@ -79,8 +104,8 @@ public class Program
                     }
                     else
                     {
-                        Console.Clear();
-                        Console.WriteLine("You did not enter a valid input");
+                        UI.ConsoleDefault();
+                        UI.WriteLine("You did not enter a valid input");
                         Console.ReadKey();
                     }
                 }
@@ -107,8 +132,8 @@ public class Program
             }
             else
             {
-                Console.Clear();
-                Console.WriteLine("You did not enter a valid input");
+                UI.ConsoleDefault();
+                UI.WriteLine("You did not enter a valid input");
                 Console.ReadKey();
             }
 
@@ -117,12 +142,36 @@ public class Program
 
     private static void NewGame(Player player)
     {
+        
+
+        /*
         Console.Write("Enter your name: ");
         string input = Console.ReadLine();
         player.Name = input;
         Console.Clear();
-        
+
         Console.WriteLine($"{player.Name} wakes up in a clearing, forest all around them.");
-        Console.ReadKey();
+        Console.ReadKey();*/
+    }
+
+    public async void PlayIntro()
+    {
+        Console.Clear();
+        // AScii text generator credit: https://patorjk.com/software/taag/
+        
+            Console.WriteLine(".___________. __________   ___ .___________.        ___       _______  ____    ____  _______ .__   __. .___________. __    __  .______       _______ ");
+            await Task.Delay(250);
+            Console.WriteLine("|           ||   ____\\  \\ /  / |           |       /   \\     |       \\ \\   \\  /   / |   ____||  \\ |  | |           ||  |  |  | |   _  \\     |   ____|");
+            await Task.Delay(250);
+            Console.WriteLine("`---|  |----`|  |__   \\  V  /  `---|  |----`      /  ^  \\    |  .--.  | \\   \\/   /  |  |__   |   \\|  | `---|  |----`|  |  |  | |  |_)  |    |  |__   ");
+            await Task.Delay(250);
+            Console.WriteLine("    |  |     |   __|   >   <       |  |          /  /_\\  \\   |  |  |  |  \\      /   |   __|  |  . `  |     |  |     |  |  |  | |      /     |   __|  ");
+            await Task.Delay(250);
+            Console.WriteLine("    |  |     |  |____ /  .  \\      |  |         /  _____  \\  |  '--'  |   \\    /    |  |____ |  |\\   |     |  |     |  `--'  | |  |\\  \\----.|  |____ ");
+            await Task.Delay(250);
+            Console.WriteLine("    |__|     |_______/__/ \\__\\     |__|        /__/     \\__\\ |_______/     \\__/     |_______||__| \\__|     |__|      \\______/  | _| `._____||_______|\n");
+
+            Console.ReadLine();
+            
     }
 }
