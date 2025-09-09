@@ -28,7 +28,21 @@ public class Entity
     {
         if (type == "melee")
         {
-            float x = (source.Melee * inventory.GetWeaponValue())/target.meleeDefence;
+            float x = inventory.GetWeaponValue("melee")*(source.Melee * (1 - (target.MeleeDefence / 100)));
+
+            int y = (int)x;
+            return y;
+        }
+        else if (type == "range")
+        {
+            float x = inventory.GetWeaponValue("range")*(source.Range * (1 - (target.RangeDefence / 100)));
+
+            int y = (int)x;
+            return y;
+        }
+        else if (type == "magic")
+        {
+            float x = inventory.GetWeaponValue("magic")*(source.Magic * (1 - (target.MagicDefence / 100)));
 
             int y = (int)x;
             return y;

@@ -285,31 +285,98 @@ public class Inventory
         return 0;
     }
 
-    public float GetWeaponValue()
+    public float GetWeaponValue(string typ)
     {
-        float value = 1;
-        if (GetItem("flintdagger") == 1)
+        if (typ == "melee")
         {
-            value+=0.2f;
+            float value = 1;
+            if (GetItem("flintdagger") == 1)
+            {
+                value =2;
+                
+            }
             if (GetItem("stonemace") == 1)
             {
-                value+=0.2f;
-                if (GetItem("copperspear") == 1)
-                {
-                    value+=0.2f;
-                    if (GetItem("ironsword") == 1)
-                    {
-                        value+=0.2f;
-                        if (GetItem("mithrillongsword") == 1)
-                        {
-                            value+=0.2f;
-                        }
-                    }
-                }
+                value=3;
+                    
             }
+            if (GetItem("copperspear") == 1)
+            {
+                value=4;
+                        
+            }
+            if (GetItem("ironsword") == 1)
+            {
+                value=5;
+                            
+            }
+            if (GetItem("mithrillongsword") == 1)
+            {
+                value=6;
+            }
+            return value;
         }
-        
-        return value;
+        else if (typ == "magic")
+        {
+            float value = 1;
+            if (GetItem("wand") == 1)
+            {
+                value =1;
+                
+            }
+            if (GetItem("magicsigil") == 1)
+            {
+                value=2;
+                    
+            }
+            if (GetItem("staff") == 1)
+            {
+                value=3;
+                        
+            }
+            if (GetItem("spellbook") == 1)
+            {
+                value=4;
+                            
+            }
+            if (GetItem("darkgrimoire") == 1)
+            {
+                value=5;
+            }
+            return value;
+        }
+        else if (typ == "range")
+        {
+            float value = 1;
+            if (GetItem("slingshot") == 1)
+            {
+                value =1;
+                
+            }
+            if (GetItem("bow") == 1)
+            {
+                value=2;
+                    
+            }
+            if (GetItem("crossbow") == 1)
+            {
+                value=3;
+                        
+            }
+            if (GetItem("longbow") == 1)
+            {
+                value=4;
+                            
+            }
+            if (GetItem("warbow") == 1)
+            {
+                value=5;
+            }
+            return value;
+        }
+
+        return 0f;
+
     }
 
 }

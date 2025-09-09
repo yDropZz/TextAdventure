@@ -1,8 +1,8 @@
 ﻿namespace TextAdventure;
 public class Program
 {
-    
-    
+
+    public Enemy enemy;
     public static async void PlayIntroTest()
     {
         Console.Clear();
@@ -173,5 +173,12 @@ public class Program
 
             Console.ReadLine();
             
+    }
+
+    public void CreateEnemy()
+    {
+        Enemy x = new Enemy();
+        x.GenerateEnemy("goblin");
+        enemy = x;
     }
 }
