@@ -49,10 +49,6 @@ public class UI
 
     public static void ConsoleDefault(Enemy enemy = null)
     {
-
-        Mining mining;
-    
-        
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
@@ -79,9 +75,9 @@ public class UI
 //--------- Row 4 -------------
         Console.WriteLine("");
         Console.Write("            ");
-        Console.Write($"⸕ Mining: {} (15/35)⸕");
+        Console.Write($"⸕ Mining: 21 (15/35)⸕");
         Console.Write("                  ");
-        Console.Write("✎ Woodcutting: 51 (48/108)✎");
+        Console.Write($"✎ Woodcutting: 51 (48/108)✎");
         Console.Write("                  ");
         Console.Write("❦ Melee: 10 (12/32)❦");
         Console.Write("                  ");

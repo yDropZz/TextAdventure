@@ -285,9 +285,9 @@ public class Inventory
         return 0;
     }
 
-    public float GetWeaponValue(string typ)
+    public float GetWeaponValue(string type)
     {
-        if (typ == "melee")
+        if (type == "melee")
         {
             float value = 1;
             if (GetItem("flintdagger") == 1)
@@ -316,7 +316,7 @@ public class Inventory
             }
             return value;
         }
-        else if (typ == "magic")
+        else if (type == "magic")
         {
             float value = 1;
             if (GetItem("wand") == 1)
@@ -345,7 +345,7 @@ public class Inventory
             }
             return value;
         }
-        else if (typ == "range")
+        else if (type == "range")
         {
             float value = 1;
             if (GetItem("slingshot") == 1)
@@ -378,5 +378,80 @@ public class Inventory
         return 0f;
 
     }
+
+    public float GetToolValue(string type)
+    {
+        if (type == "pickaxe")
+        {
+            float value = 1;
+            if (GetItem("flintdagger") == 1)
+            {
+                value =2;
+                
+            }
+            if (GetItem("stonemace") == 1)
+            {
+                value=3;
+                    
+            }
+            if (GetItem("copperspear") == 1)
+            {
+                value=4;
+                        
+            }
+            if (GetItem("ironsword") == 1)
+            {
+                value=5;
+                            
+            }
+            if (GetItem("mithrillongsword") == 1)
+            {
+                value=6;
+            }
+            return value;
+        }
+        else if (type == "axe")
+        {
+            float value = 1;
+            if (GetItem("wand") == 1)
+            {
+                value =1;
+                
+            }
+            if (GetItem("magicsigil") == 1)
+            {
+                value=2;
+                    
+            }
+            if (GetItem("staff") == 1)
+            {
+                value=3;
+                        
+            }
+            if (GetItem("spellbook") == 1)
+            {
+                value=4;
+                            
+            }
+            if (GetItem("darkgrimoire") == 1)
+            {
+                value=5;
+            }
+            return value;
+        }
+        return 0;
+    }
+
+    public void PrintInventory()
+    {
+        Console.Clear();
+        UI.WriteLine("[Resources]");
+        UI.WriteLine($"Flint:{flint}, Stone:{stone}, Copper:{copper}, Iron:{iron}, Mithril:{mithril}");
+        UI.WriteLine($"Amethyst:{amethyst}, Sapphire:{sapphire}, Topaz:{topaz}, Ruby:{ruby}, Diamond:{diamond}");
+        UI.WriteLine($"Log:{log}, Birch logs:{birchlog}, Spruce logs:{sprucelog}, Oak logs:{oaklog}, Dark oak logs:{darkoaklog}");
+        UI.WriteLine($"[Tools]");
+        UI.WriteLine($"Pickaxe:");
+    }
+    
 
 }

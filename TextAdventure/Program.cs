@@ -91,7 +91,8 @@ public class Program
             }
             else if (input == "4" || input == "inventory")
             {
-                
+                inventory.PrintInventory();
+                Console.ReadKey();
             }
             else if (input == "5" || input == "town")
             {

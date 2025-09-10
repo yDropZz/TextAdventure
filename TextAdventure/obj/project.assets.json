@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\b25chrli\\.nuget\\packages\\": {}
+    "C:\\Users\\trist\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\b25chrli\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
+      "projectUniqueName": "C:\\Users\\trist\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
       "projectName": "TextAdventure",
-      "projectPath": "C:\\Users\\b25chrli\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
-      "packagesPath": "C:\\Users\\b25chrli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\b25chrli\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\TextAdventure\\TextAdventure\\obj\\",
+      "projectPath": "C:\\Users\\trist\\Documents\\GitHub\\TextAdventure\\TextAdventure\\TextAdventure.csproj",
+      "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\trist\\Documents\\GitHub\\TextAdventure\\TextAdventure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\b25chrli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
