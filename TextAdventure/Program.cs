@@ -1,44 +1,23 @@
 ﻿namespace TextAdventure;
 public class Program
 {
+    
 
-    public Enemy enemy;
-    public static async void PlayIntroTest()
-    {
-        Console.Clear();
-        // AScii text generator credit: https://patorjk.com/software/taag/
-        
-        await Task.Delay(250);
-        Console.WriteLine(".___________. __________   ___ .___________.        ___       _______  ____    ____  _______ .__   __. .___________. __    __  .______       _______ ");
-        await Task.Delay(250);
-        Console.WriteLine("|           ||   ____\\  \\ /  / |           |       /   \\     |       \\ \\   \\  /   / |   ____||  \\ |  | |           ||  |  |  | |   _  \\     |   ____|");
-        await Task.Delay(250);
-        Console.WriteLine("`---|  |----`|  |__   \\  V  /  `---|  |----`      /  ^  \\    |  .--.  | \\   \\/   /  |  |__   |   \\|  | `---|  |----`|  |  |  | |  |_)  |    |  |__   ");
-        await Task.Delay(250);
-        Console.WriteLine("    |  |     |   __|   >   <       |  |          /  /_\\  \\   |  |  |  |  \\      /   |   __|  |  . `  |     |  |     |  |  |  | |      /     |   __|  ");
-        await Task.Delay(250);
-        Console.WriteLine("    |  |     |  |____ /  .  \\      |  |         /  _____  \\  |  '--'  |   \\    /    |  |____ |  |\\   |     |  |     |  `--'  | |  |\\  \\----.|  |____ ");
-        await Task.Delay(250);
-        Console.WriteLine("    |__|     |_______/__/ \\__\\     |__|        /__/     \\__\\ |_______/     \\__/     |_______||__| \\__|     |__|      \\______/  | _| `._____||_______|\n");
-
-        Console.ReadLine();
-            
-    }
     public static void Main()
     {
+        Enemy enemy = new Enemy();
         Mining mining = new Mining();
         Inventory inventory = new Inventory();
         Woodcutting woodcutting = new Woodcutting();
         Player player = new Player();
         NewGame(player);
-        PlayIntroTest();
 
         while (true)
         {
             
             
             Console.Clear();
-            UI.ConsoleDefault();
+            UI.ConsoleDefault(enemy);
             UI.WriteLine("Well.. What's your next move!?");
             UI.WriteLine("");
             UI.WriteLine("1. Adventure");
@@ -142,40 +121,44 @@ public class Program
 
     private static void NewGame(Player player)
     {
+
+        PlayIntro();
         
-
-        /*
-        Console.Write("Enter your name: ");
-        string input = Console.ReadLine();
-        player.Name = input;
+        // 5 Empty lines
         Console.Clear();
+        Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
 
-        Console.WriteLine($"{player.Name} wakes up in a clearing, forest all around them.");
-        Console.ReadKey();*/
+        UI.TypeWriteLine($"Hey! ... Who are you?");
+        UI.TypeWriteLine("Enter your name: ");
+        player.Name = Console.ReadLine();
+        UI.TypeWrite($"Oh... Hey {player.Name}... I'm glad you're okay!");
+
     }
 
-    public async void PlayIntro()
+    public static void PlayIntro()
     {
         Console.Clear();
         // AScii text generator credit: https://patorjk.com/software/taag/
-        
-            Console.WriteLine(".___________. __________   ___ .___________.        ___       _______  ____    ____  _______ .__   __. .___________. __    __  .______       _______ ");
-            await Task.Delay(250);
-            Console.WriteLine("|           ||   ____\\  \\ /  / |           |       /   \\     |       \\ \\   \\  /   / |   ____||  \\ |  | |           ||  |  |  | |   _  \\     |   ____|");
-            await Task.Delay(250);
-            Console.WriteLine("`---|  |----`|  |__   \\  V  /  `---|  |----`      /  ^  \\    |  .--.  | \\   \\/   /  |  |__   |   \\|  | `---|  |----`|  |  |  | |  |_)  |    |  |__   ");
-            await Task.Delay(250);
-            Console.WriteLine("    |  |     |   __|   >   <       |  |          /  /_\\  \\   |  |  |  |  \\      /   |   __|  |  . `  |     |  |     |  |  |  | |      /     |   __|  ");
-            await Task.Delay(250);
-            Console.WriteLine("    |  |     |  |____ /  .  \\      |  |         /  _____  \\  |  '--'  |   \\    /    |  |____ |  |\\   |     |  |     |  `--'  | |  |\\  \\----.|  |____ ");
-            await Task.Delay(250);
-            Console.WriteLine("    |__|     |_______/__/ \\__\\     |__|        /__/     \\__\\ |_______/     \\__/     |_______||__| \\__|     |__|      \\______/  | _| `._____||_______|\n");
-
-            Console.ReadLine();
-            
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("                              .___________. __________   ___ .___________.        ___       _______  ____    ____  _______ .__   __. .___________. __    __  .______       _______ ");
+            System.Threading.Thread.Sleep(100);
+            Console.WriteLine("                              |           ||   ____\\  \\ /  / |           |       /   \\     |       \\ \\   \\  /   / |   ____||  \\ |  | |           ||  |  |  | |   _  \\     |   ____|");
+            System.Threading.Thread.Sleep(100);
+            Console.WriteLine("                              `---|  |----`|  |__   \\  V  /  `---|  |----`      /  ^  \\    |  .--.  | \\   \\/   /  |  |__   |   \\|  | `---|  |----`|  |  |  | |  |_)  |    |  |__   ");
+            System.Threading.Thread.Sleep(100);
+            Console.WriteLine("                                  |  |     |   __|   >   <       |  |          /  /_\\  \\   |  |  |  |  \\      /   |   __|  |  . `  |     |  |     |  |  |  | |      /     |   __|  ");
+            System.Threading.Thread.Sleep(100);
+            Console.WriteLine("                                  |  |     |  |____ /  .  \\      |  |         /  _____  \\  |  '--'  |   \\    /    |  |____ |  |\\   |     |  |     |  `--'  | |  |\\  \\----.|  |____ ");
+            System.Threading.Thread.Sleep(100);
+            Console.WriteLine("                                  |__|     |_______/__/ \\__\\     |__|        /__/     \\__\\ |_______/     \\__/     |_______||__| \\__|     |__|      \\______/  | _| `._____||_______|\n");
+            System.Threading.Thread.Sleep(1000);
     }
 
-    public void CreateEnemy()
+    public void CreateEnemy(Enemy enemy)
     {
         Enemy x = new Enemy();
         x.GenerateEnemy("goblin");

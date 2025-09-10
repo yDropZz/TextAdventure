@@ -11,8 +11,13 @@ public class Enemy : Entity
         
         if (type == "goblin")
         {
+            //Roll random level
             level = random.Next(1, 11);
-            HPMax = 3+level;
+            // Roll hp
+            float hpRoll = 3 + (level * 0.5f);
+            //Set hp to the roll
+            HPMax = (int)hpRoll;
+            //Roll the type of goblin
             int x = random.Next(1,4);
             if (x == 1)
             {
