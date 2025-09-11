@@ -17,23 +17,20 @@ public class Player : Entity
     public int MagicXpReq { get => magicXpReq; set => magicXpReq = value; }
     public int MeleeXPreq { get => meleeXpReq; set => meleeXpReq = value; }
     public int RangeXPreq { get => rangeXpReq; set => rangeXpReq = value; }
-
-    public Player()
-    {
-        SetMaxHP(10);
-    }
-    private void AddXp(int amount, int type)
+    
+    public void AddXp(int amount, int type)
     {
         if (type == 0)
         {
             playerXp += amount;
+            UI.WriteLine("You gained " + amount + "xp");
             if (playerXp >= playerXpReq)
             {
                 playerXp -= playerXpReq;
                 playerLevel++;
 
                 playerXpReq += 4;
-                Console.WriteLine("You leveled up! You are now level: " + playerLevel);
+                UI.WriteLine("You leveled up! You are now level: " + playerLevel);
             }
         }
         else if (type == 1)
@@ -45,7 +42,9 @@ public class Player : Entity
                 Melee++;
 
                 meleeXpReq += 4;
-                Console.WriteLine("You leveled up melee! You are now level: " + Melee);
+                UI.WriteLine("You leveled up melee! You are now level: " + Melee);
+                UI.WriteLine("Your max hp increased with +2");
+                HPMax += 2;
             }
         }
         else if (type == 2)
@@ -57,7 +56,7 @@ public class Player : Entity
                 Range++;
 
                 rangeXpReq += 4;
-                Console.WriteLine("You leveled up range! You are now level: " + Range);
+                UI.WriteLine("You leveled up range! You are now level: " + Range);
             }
         }
         else if (type == 3)
@@ -69,7 +68,7 @@ public class Player : Entity
                 Magic++;
 
                 magicXpReq += 4;
-                Console.WriteLine("You leveled up magic! You are now level: " + Magic);
+                UI.WriteLine("You leveled up magic! You are now level: " + Magic);
             }
         }
     }

@@ -4,15 +4,15 @@ public class Entity
 {
     private string name;
     public string Name { get => name; set => name = value; }
-    private int hp;
+    private int hp = 10;
     public int HP { get => hp; set => hp = value; }
-    private int hpMax;
+    private int hpMax =10;
     public int HPMax { get => hpMax; set => hpMax = value; }
-    private int melee;
+    private int melee = 1;
     public int Melee { get => melee; set => melee = value; }
-    private int range;
+    private int range = 1;
     public int Range { get => range; set => range = value; }
-    private int magic;
+    private int magic = 1;
     public int Magic { get => magic; set => magic = value; }
     private bool isDead = false;
     public bool IsDead { get => isDead; set => isDead = value; }
@@ -24,29 +24,34 @@ public class Entity
     public int MagicDefence { get => magicDefence; set => magicDefence = value; }
     
 
-    public int CalculateDamage(string type, Player source, Enemy target, Inventory inventory)
+    public int CalculateDamage(string type, Entity source, Entity target, Inventory inventory)
     {
         if (type == "melee")
         {
-            float x = inventory.GetWeaponValue("melee")*(source.Melee * (1 - (target.MeleeDefence / 100)));
+            float x = 1+ inventory.GetWeaponValue("melee")*((source.Melee) * (1 - (target.MeleeDefence / 100)));
 
             int y = (int)x;
             return y;
         }
         else if (type == "range")
         {
-            float x = inventory.GetWeaponValue("range")*(source.Range * (1 - (target.RangeDefence / 100)));
+            float x = 1+ inventory.GetWeaponValue("range")*((source.Range) * (1 - (target.RangeDefence / 100)));
 
             int y = (int)x;
             return y;
         }
         else if (type == "magic")
         {
-            float x = inventory.GetWeaponValue("magic")*(source.Magic * (1 - (target.MagicDefence / 100)));
+            float x = 1+ inventory.GetWeaponValue("magic")*((source.Magic) * (1 - (target.MagicDefence / 100)));
 
             int y = (int)x;
             return y;
         }
+        else if (type == null)
+        {
+            return source.Melee;
+        }
+            
         return 0;
     }
     
@@ -58,11 +63,11 @@ public class Entity
     
     public void RemoveHp(int amount)
     {
-        Console.WriteLine($"{this.name} took {amount} damage.");
+        UI.WriteLine($"{this.name} took {amount} damage.");
         this.hp -= amount;
         
         if(this.hp <= 0)
-            OnDeath();
+            isDead = true;
     }
 
     public void AddHp(int amount)
@@ -79,12 +84,5 @@ public class Entity
             this.hp = this.hpMax;
         else if (this.hp <= 0)
             hp = 0;
-    }
-
-    private void OnDeath()
-    {
-        Console.Clear();
-        Console.WriteLine($"{this.name} died");
-        Console.ReadKey();
     }
 }

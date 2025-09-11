@@ -17,6 +17,10 @@ public class Enemy : Entity
             float hpRoll = 3 + (level * 0.5f);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
             //Roll the type of goblin
             int x = random.Next(1,4);
             if (x == 1)
@@ -50,6 +54,10 @@ public class Enemy : Entity
             float hpRoll = 5 + (level);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
             
             Name = "Wolf";
             MeleeDefence = random.Next(0, 0);
@@ -64,6 +72,10 @@ public class Enemy : Entity
             float hpRoll = 2 + (level * 0.5f);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
             //Roll the type of skeleton
             int x = random.Next(1,4);
             if (x == 1)
@@ -97,6 +109,10 @@ public class Enemy : Entity
             float hpRoll = 10 + (level);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
 
             Name = "Orc";
             MeleeDefence = random.Next(20, 30);
@@ -111,6 +127,10 @@ public class Enemy : Entity
             float hpRoll = 5 + (level);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
 
             Name = "Demon";
             MeleeDefence = random.Next(25, 36);
@@ -125,6 +145,10 @@ public class Enemy : Entity
             float hpRoll = 45 + (level *1.5f);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
 
             Name = "Jefferson Dragon";
             MeleeDefence = random.Next(25, 36);
@@ -139,12 +163,19 @@ public class Enemy : Entity
             float hpRoll = (level * 2);
             //Set hp to the roll
             HPMax = (int)hpRoll;
+            // Roll damage
+            float damageroll = 1 + (level * 0.25f);
+            //Set damge to the roll
+            Melee = (int)damageroll;
 
             Name = "Demon Lord";
             MeleeDefence = 50;
             RangeDefence = 50;
             MagicDefence = 50;
         }
-        
+
+        HP = HPMax;
+        IsDead = false;
+
     }
 }
