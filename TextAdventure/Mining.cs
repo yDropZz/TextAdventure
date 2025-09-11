@@ -8,8 +8,8 @@ public class Mining
     private int miningXP = 0;
     private int miningXPReq = 20;
     private int miningLevel = 1;
-    public int MiningXP { get => miningXPReq; set => miningXPReq = value; }
-    public int MiningXPReq { get => miningXP; set => miningXP = value; }
+    public int MiningXP { get => miningXP; set => miningXP = value; }
+    public int MiningXPReq { get => miningXPReq; set => miningXPReq = value; }
     public int MiningLevel { get => miningLevel; set => miningLevel = value; }
 
     private void AddMiningExperience(int amount)
