@@ -62,14 +62,12 @@ public class UI
 //---------- Row 1 ------------
 
         Console.Write("                                                                                              ");
-        Console.Write($"Player ({player.HP}/{player.HPMax})");
+        Console.Write($"{player.Name} ({player.HP}/{player.HPMax})");
         Console.Write("                    ");
         Console.WriteLine("");
 //--------- Row 2 -------------
-        Console.Write("                                                                                              ");
-        Console.Write("『▮▮▮▮▮▮▮▯▯▯ 』");
-
-       Console.WriteLine("");
+        Console.Write(PrintHP(player));
+        Console.WriteLine("");
 //--------- Row 3 -------------
         Console.WriteLine("");
 //--------- Row 4 -------------
@@ -79,11 +77,11 @@ public class UI
         Console.Write("                  ");
         Console.Write($"✎ Woodcutting: {woodcutting.WoodcuttingLevel} ({woodcutting.WoodcuttingXp}/{woodcutting.WoodcuttingXPREQ})✎");
         Console.Write("                  ");
-        Console.Write("❦ Melee: 10 (12/32)❦");
+        Console.Write($"❦ Melee: {player.Melee} ({player.MeleeXp}/{player.MeleeXPreq})❦");
         Console.Write("                  ");
-        Console.Write("✯ Magic: 12 (14/38)✯");
+        Console.Write($"✯ Magic: {player.Magic} ({player.MagicXp}/{player.MagicXpReq})✯");
         Console.Write("                  ");
-        Console.WriteLine("↠ Range: 21 (37/56)↠ ");
+        Console.WriteLine($"↠ Range: {player.Range} ({player.RangeXp}/{player.RangeXPreq})↠ ");
         Console.WriteLine("");
         //Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.Write("                    ");
@@ -93,7 +91,9 @@ public class UI
         Console.WriteLine("");
         if (enemy != null)
         {
-            Console.WriteLine("Goblin (2/5)  『▮▮▯▯▯ 』");
+            Console.Write("                                                                                              ");
+            Console.WriteLine($"{enemy.Name} ({enemy.HP}/{enemy.HPMax})");
+            Console.WriteLine(PrintHP(enemy));
         }
         else
             Console.WriteLine("");
@@ -101,7 +101,28 @@ public class UI
         Console.WriteLine("");
         Console.WriteLine("");
     }
-    
+
+    static private string PrintHP(Entity sourcEntity)
+    {
+        float y = 100f-(0.5f*sourcEntity.HPMax);
+        int x = (int)y;
+        for (int i = 0; i < y; i++)
+        {
+            Console.Write(" ");
+        }
+        Console.Write("『");
+        for (int i = 0; i < sourcEntity.HP; i++)
+        {
+            Console.Write("▮");
+        }
+        int z = sourcEntity.HPMax - sourcEntity.HP;
+        for (int i = 0; i < z; i++)
+        {
+            Console.Write("▯");
+        }
+        Console.Write("』");
+        return "";
+    }
     
     
 
