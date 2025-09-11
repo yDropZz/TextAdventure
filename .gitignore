@@ -1,2 +1,7 @@
 TextAdventure/bin/Debug/net9.0/TextAdventure.dll
 TextAdventure/bin/Debug/net9.0/TextAdventure.exe
+*.cache
+*.editorconfig
+*.json
+*.info
+*.props
