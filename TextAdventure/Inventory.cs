@@ -4,6 +4,10 @@ namespace TextAdventure;
 
 public class Inventory
 {
+    private Player player;
+    
+    
+    
     //Minerals
     //--------------------
     private int flint = 0;
@@ -78,7 +82,7 @@ public class Inventory
 
     //General
     //-----------------------
-    private int coins = 0;
+    private int coins = 1000;
 
     public int Coins
     {
@@ -216,6 +220,176 @@ public class Inventory
                 break;
         }
     }
+    
+    public void RemoveItem(string item, int amount)
+    {
+        switch (item)
+        {
+            case "flint":
+                flint -= amount;
+                break;
+            case "stone":
+                stone -= amount;
+                break;
+            case "copper":
+                copper -= amount;
+                break;
+            case "iron":
+                iron -= amount;
+                break;
+            case "mithril":
+                mithril -= amount;
+                break;
+            case "amethyst":
+                amethyst -= amount;
+                break;
+            case "sapphire":
+                sapphire -= amount;
+                break;
+            case "topaz":
+                topaz -= amount;
+                break;
+            case "ruby":
+                ruby -= amount;
+                break;
+            case "diamond":
+                diamond -= amount;
+                break;
+            case "log":
+                log -= amount;
+                break;
+            case "birchlog":
+                birchlog -= amount;
+                break;
+            case "sprucelog":
+                sprucelog -= amount;
+                break;
+            case "oaklog":
+                oaklog -= amount;
+                break;
+            case "darkoaklog":
+                darkoaklog -= amount;
+                break;
+            case "flintdagger":
+                flintdagger -= amount;
+                break;
+            case "stonemace":
+                stonemace -= amount;
+                break;
+            case "copperspear":
+                copperspear -= amount;
+                break;
+            case "ironsword":
+                ironsword -= amount;
+                break;
+            case "mithrillongsword":
+                mithrillongsword -= amount;
+                break;
+            case "wand":
+                wand -= amount;
+                break;
+            case "magicsigil":
+                magicsigil -= amount;
+                break;
+            case "staff":
+                staff -= amount;
+                break;
+            case "spellbook":
+                spellbook -= amount;
+                break;
+            case "darkgrimoire":
+                darkgrimoire -= amount;
+                break;
+            case "slingshot":
+                slingshot -= amount;
+                break;
+            case "bow":
+                bow -= amount;
+                break;
+            case "crossbow":
+                crossbow -= amount;
+                break;
+            case "longbow":
+                longbow -= amount;
+                break;
+            case "warbow":
+                warbow -= amount;
+                break;
+            case "flintpickaxe":
+                flintpickaxe -= amount;
+                break;
+            case "stonepickaxe":
+                stonepickaxe -= amount;
+                break;
+            case "copperpickaxe":
+                copperpickaxe -= amount;
+                break;
+            case "ironpickaxe":
+                ironpickaxe -= amount;
+                break;
+            case "mithrilpickaxe":
+                mithrilpickaxe -= amount;
+                break;
+            case "flintaxe":
+                flintaxe -= amount;
+                break;
+            case "stoneaxe":
+                stoneaxe -= amount;
+                break;
+            case "copperaxe":
+                copperaxe -= amount;
+                break;
+            case "ironaxe":
+                ironaxe -= amount;
+                break;
+            case "mithrilaxe":
+                mithrilaxe -= amount;
+                break;
+            case "coin":
+                coins -= amount;
+                break;
+        }
+    }
+
+    public int GetItemValue(string item)
+    {
+        switch (item)
+        {
+            case "flint":
+                return 1;
+            case "stone":
+                return 2;
+            case "copper":
+                return 5;
+            case "iron":
+                return 20;
+            case "mithril":
+                return 100;
+            case "amethyst":
+                return 2;
+            case "sapphire":
+                return 4;
+            case "topaz":
+                return 20;
+            case "ruby":
+                return 40;
+            case "diamond":
+                return 200;
+            case "log":
+                return 1;
+            case "birchlog":
+                return 2;
+            case "sprucelog":
+                return 5;
+            case "oaklog":
+                return 20;
+            case "darkoaklog":
+                return 100;
+        }
+
+        return 0;
+    }
+    
 
     public int GetItem(string item)
     {
@@ -473,32 +647,401 @@ public class Inventory
     public void PrintInventory()
     {
         UI.WriteLine("[Resources]");
-        UI.WriteLine($"Flint:{flint}, Stone:{stone}, Copper:{copper}, Iron:{iron}, Mithril:{mithril}");
-        UI.WriteLine($"Amethyst:{amethyst}, Sapphire:{sapphire}, Topaz:{topaz}, Ruby:{ruby}, Diamond:{diamond}");
-        UI.WriteLine($"Log:{log}, Birch logs:{birchlog}, Spruce logs:{sprucelog}, Oak logs:{oaklog}, Dark oak logs:{darkoaklog}");
+        UI.WriteLine($"Flint: {flint}, Stone: {stone}, Copper: {copper}, Iron: {iron}, Mithril: {mithril}");
+        UI.WriteLine($"Amethyst: {amethyst}, Sapphire: {sapphire}, Topaz: {topaz}, Ruby: {ruby}, Diamond: {diamond}");
+        UI.WriteLine($"Log: {log}, Birch logs: {birchlog}, Spruce logs: {sprucelog}, Oak logs: {oaklog}, Dark oak logs: {darkoaklog}");
+        UI.WriteLine("");
         UI.WriteLine($"[Tools]");
-        UI.WriteLine($"Pickaxe:");
+        UI.WriteLine($"Axes: Flint Axe: {flintaxe}, Stone Axe: {stoneaxe}, Copper Axe: {copperaxe}, Iron Axe: {ironaxe}, Mithril Axe: {mithrilaxe}");
+        UI.WriteLine($"Pickaxes: Flint Pickaxe: {flintpickaxe}, Stone Pickaxe: {stonepickaxe}, Copper Pickaxe: {copperpickaxe}, Iron Pickaxe: {ironpickaxe}, Mithril Pickaxe: {mithrilpickaxe}");
+        UI.WriteLine("");
+        UI.WriteLine($"[Weapons]");
+        UI.WriteLine($"Melee Weapons: Flint Dagger: {flintdagger}, Stone Mace: {stonemace}, Copper Spear: {copperspear}, Iron Sword: {ironsword}, Mithril Longsword: {mithrillongsword} ");
+        UI.WriteLine($"Range Weapons: Slingshot: {slingshot}, Bow: {bow}, Crossbow: {crossbow}, Longbow: {longbow}, Warbow: {warbow}");
+        UI.WriteLine($"Magic Weapons: Wand: {wand}, Staff: {staff}, magicsigil: {magicsigil}, spellbook: {spellbook}, darkgrimoire: {darkgrimoire}");
+        UI.WriteLine("[Misc]");
+        UI.WriteLine($"Coins: {coins}");
+        
     }
 
-    public void PrintShop()
+    public void PrintShop(Player player, Woodcutting woodcutting, Mining mining, Inventory inventory)
     {
-        UI.TypeWrite($"Hello traveler, how may i help you?");
-        UI.WriteLine("1. Buy");
-        UI.WriteLine("2. Sell");
+        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+        UI.TypeWriteLine($"Hello Traveler! how may i help you?");
+        UI.TypeWriteLine("1. Buy");
+        UI.TypeWriteLine("2. Sell");
+        UI.TypeWriteLine("3. Exit");
         string mode = Console.ReadLine().Trim().ToLower();
-        Console.Clear();
-        if (mode == "buy" && mode =="1")
+        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+
+        if (mode == "3")
         {
-            UI.TypeWriteLine("What would you like to buy?");
-            UI.WriteLine("[Resources]");
-            UI.WriteLine($"Flint:{flint}[1⛃], Stone:{stone}[2⛃], Copper:{copper}[5⛃], Iron:{iron}[20⛃], Mithril:{mithril}[100⛃]");
-            UI.WriteLine($"Amethyst:{amethyst}[2⛃], Sapphire:{sapphire}[4⛃], Topaz:{topaz}[10⛃], Ruby:{ruby}[40⛃], Diamond:{diamond}[200⛃]");
-            UI.WriteLine($"Log:{log}[1⛃], Birch logs:{birchlog}[2⛃], Spruce logs:{sprucelog}[5⛃], Oak logs:{oaklog}[20⛃], Dark oak logs:{darkoaklog}[100⛃]");
-            
+            return;
         }
-        else if (mode == "sell" && mode=="2")
+        
+        // Print store
+        if (mode == "buy" || mode =="1")
         {
+            UI.WriteLine("[Resources]" + "                 You have " + coins + "⛃ ");
+            UI.WriteLine($"1. Flint [2⛃ ] ");
+            UI.WriteLine($"2. Stone [4⛃ ]");
+            UI.WriteLine("3. Copper [10⛃ ]");
+            UI.WriteLine("4. Iron [40⛃ ]");
+            UI.WriteLine("5. Mithril [200⛃ ]");
+            UI.WriteLine("6. Amethyst [4⛃ ]");
+            UI.WriteLine("7. Sapphire [8⛃ ]");
+            UI.WriteLine("8. Topaz [20⛃ ]");
+            UI.WriteLine("10. Ruby [80⛃ ]");
+            UI.WriteLine("11. Diamond [400⛃ ]");
+            UI.WriteLine("11. Log [2⛃ ]");
+            UI.WriteLine("12. Birch log [4⛃ ]");
+            UI.WriteLine("13. Spruce log [10⛃ ]");
+            UI.WriteLine("14. Oak log [40⛃ ]");
+            UI.WriteLine("15. Dark oak logs [200⛃ ]");
+            UI.WriteLine("16. Exit");
+            UI.WriteLine("");
+            UI.TypeWrite("What would you like to buy: ");
             
+            string buyInput = Console.ReadLine().Trim().ToLower();
+            
+            string buyInputName = "item";
+
+            int itemValue = 0;
+
+            string actualItemToBuy = "tempItem";
+
+            if (buyInput == "1" || buyInput == "flint")
+            {
+                itemValue = GetItemValue("flint");
+                buyInputName = "Flint";
+                actualItemToBuy = "flint";
+
+            }
+            else if (buyInput == "2" || buyInput == "stone")
+            {
+                itemValue = GetItemValue("stone");
+                buyInputName = "Stone";
+                actualItemToBuy = "stone";
+            }
+            else if (buyInput == "3" || buyInput == "copper")
+            {
+                itemValue = GetItemValue("copper");
+                buyInputName = "Copper";
+                actualItemToBuy = "copper";
+            }
+            else if (buyInput == "4" || buyInput == "iron")
+            {
+                itemValue = GetItemValue("iron");
+                buyInputName = "Iron";
+                actualItemToBuy = "iron";
+            }
+            else if (buyInput == "5" || buyInput == "mithril")
+            {
+                itemValue = GetItemValue("mithril");
+                buyInputName = "Mithril";
+                actualItemToBuy = "mithril";
+            }
+            else if (buyInput == "6" || buyInput == "amethyst")
+            {
+                itemValue = GetItemValue("amethyst");
+                buyInputName = "Amethyst";
+                actualItemToBuy = "amethyst";
+            }
+            else if (buyInput == "7" || buyInput == "sapphire")
+            {
+                itemValue = GetItemValue("sapphire");
+                buyInputName = "Sapphire";
+                actualItemToBuy = "sapphire";
+            }
+            else if (buyInput == "8" || buyInput == "topaz")
+            {
+                itemValue = GetItemValue("topaz");
+                buyInputName = "Topaz";
+                actualItemToBuy = "topaz";
+            }
+            else if (buyInput == "9" || buyInput == "ruby")
+            {
+                itemValue = GetItemValue("ruby");
+                buyInputName = "Ruby";
+                actualItemToBuy = "ruby";
+            }
+            else if (buyInput == "10" || buyInput == "diamond")
+            {
+                itemValue = GetItemValue("diamond");
+                buyInputName = "Diamond";
+                actualItemToBuy = "diamond";
+            }
+            else if (buyInput == "11" || buyInput == "log")
+            {
+                itemValue = GetItemValue("log");
+                buyInputName = "Log";
+                actualItemToBuy = "log";
+            }
+            else if (buyInput == "12" || buyInput == "birch log" || buyInput == "birch")
+            {
+                itemValue = GetItemValue("birchlog");
+                buyInputName = "Birch Log";
+                actualItemToBuy = "birchlog";
+            }
+            else if (buyInput == "13" || buyInput == "spruce log" || buyInput == "spruce")
+            {
+                itemValue = GetItemValue("sprucelog");
+                buyInputName = "Spruce Log";
+                actualItemToBuy = "sprucelog";
+            }
+            else if (buyInput == "14" || buyInput == "oak log" || buyInput == "oak")
+            {
+                itemValue = GetItemValue("oaklog");
+                buyInputName = "Oak Log";
+                actualItemToBuy = "oaklog";
+            }
+            else if (buyInput == "15" || buyInput == "darkoak log" || buyInput == "darkoak" || buyInput == "dark oak" ||
+                     buyInput == "dark oak log")
+            {
+                itemValue = GetItemValue("darkoaklog");
+                buyInputName = "DarkOak Log";
+                actualItemToBuy = "darkoaklog";
+            }
+            else if (buyInput == "16" || buyInput == "exit")
+            {
+                return;
+            }
+            
+            UI.TypeWrite($"How many {buyInputName} would you like to buy: ");
+            int buyAmount = int.Parse(Console.ReadLine().Trim().ToLower());
+
+            int totalPrice = itemValue * buyAmount * 2;
+            
+            UI.TypeWriteLine("");
+            UI.TypeWriteLine($"Would you like to buy {buyAmount} {buyInputName} for {totalPrice} [⛃ ]?");
+            UI.TypeWriteLine("1. Yes");
+            UI.TypeWrite("2. No");
+            
+            int z = int.Parse(Console.ReadLine().Trim().ToLower());
+
+            if (z == 1)
+            {
+                // If u cna afford it
+                if (coins >= totalPrice)
+                {
+                    coins -= totalPrice;
+                    AddItem(actualItemToBuy, buyAmount);
+
+                    UI.TypeWriteLine("Purchase Complete! Would you like to buy something else?");
+                    UI.TypeWriteLine("1. Yes");
+                    UI.TypeWrite("2. No");
+                    int y = int.Parse(Console.ReadLine().Trim().ToLower());
+                    if (y == 1)
+                    {
+                        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+                        PrintShop(player, woodcutting, mining, inventory);
+                    }
+                    else if (y == 2)
+                    {
+                        return;
+                    }
+                }
+                else
+                { 
+                    UI.TypeWriteLine("You don't have enough coins to buy this!");
+                    UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+                    PrintShop(player, woodcutting, mining, inventory);
+                    Console.ReadKey();
+                }
+            }
+            else if (z == 2)
+            {
+                return;
+            }
+
+
+
+
+        }
+
+        if (mode == "sell" || mode == "2")
+        {
+            UI.WriteLine("[Resources]" + "                 You have " + coins + "⛃ ");
+            UI.WriteLine($"1. Flint: {flint} [1⛃ ] ");
+            UI.WriteLine($"2. Stone: {stone} [2⛃ ]");
+            UI.WriteLine($"3. Copper: {copper} [5⛃ ]");
+            UI.WriteLine($"4. Iron: {iron} [20⛃ ]");
+            UI.WriteLine($"5. Mithril: {mithril} [100⛃ ]");
+            UI.WriteLine($"6. Amethyst: {amethyst} [2⛃ ]");
+            UI.WriteLine($"7. Sapphire: {sapphire} [4⛃ ]");
+            UI.WriteLine($"8. Topaz: {topaz} [10⛃ ]");
+            UI.WriteLine($"10. Ruby: {ruby} [40⛃ ]");
+            UI.WriteLine($"11. Diamond: {diamond} [200⛃ ]");
+            UI.WriteLine($"11. Log: {log} [1⛃ ]");
+            UI.WriteLine($"12. Birch log: {birchlog} [2⛃ ]");
+            UI.WriteLine($"13. Spruce log: {sprucelog} [5⛃ ]");
+            UI.WriteLine($"14. Oak log: {oaklog} [20⛃ ]");
+            UI.WriteLine($"15. Dark oak logs: {darkoaklog} [100⛃ ]");
+            UI.WriteLine("16. Exit");
+            UI.WriteLine("");
+            UI.TypeWrite("What would you like to buy: ");
+
+            string sellInput = Console.ReadLine().Trim().ToLower();
+
+            string sellInputName = "item";
+
+            int itemValue = 0;
+
+            string actualItemToSell = "tempItem";
+
+            int itemAmountYouHave = 0;
+
+            if (sellInput == "1" || sellInput == "flint")
+            {
+                itemValue = GetItemValue("flint");
+                sellInputName = "Flint";
+                actualItemToSell = "flint";
+
+            }
+            else if (sellInput == "2" || sellInput == "stone")
+            {
+                itemValue = GetItemValue("stone");
+                sellInputName = "Stone";
+                actualItemToSell = "stone";
+            }
+            else if (sellInput == "3" || sellInput == "copper")
+            {
+                itemValue = GetItemValue("copper");
+                sellInputName = "Copper";
+                actualItemToSell = "copper";
+            }
+            else if (sellInput == "4" || sellInput == "iron")
+            {
+                itemValue = GetItemValue("iron");
+                sellInputName = "Iron";
+                actualItemToSell = "iron";
+            }
+            else if (sellInput == "5" || sellInput == "mithril")
+            {
+                itemValue = GetItemValue("mithril");
+                sellInputName = "Mithril";
+                actualItemToSell = "mithril";
+            }
+            else if (sellInput == "6" || sellInput == "amethyst")
+            {
+                itemValue = GetItemValue("amethyst");
+                sellInputName = "Amethyst";
+                actualItemToSell = "amethyst";
+            }
+            else if (sellInput == "7" || sellInput == "sapphire")
+            {
+                itemValue = GetItemValue("sapphire");
+                sellInputName = "Sapphire";
+                actualItemToSell = "sapphire";
+            }
+            else if (sellInput == "8" || sellInput == "topaz")
+            {
+                itemValue = GetItemValue("topaz");
+                sellInputName = "Topaz";
+                actualItemToSell = "topaz";
+            }
+            else if (sellInput == "9" || sellInput == "ruby")
+            {
+                itemValue = GetItemValue("ruby");
+                sellInputName = "Ruby";
+                actualItemToSell = "ruby";
+            }
+            else if (sellInput == "10" || sellInput == "diamond")
+            {
+                itemValue = GetItemValue("diamond");
+                sellInputName = "Diamond";
+                actualItemToSell = "diamond";
+            }
+            else if (sellInput == "11" || sellInput == "log")
+            {
+                itemValue = GetItemValue("log");
+                sellInputName = "Log";
+                actualItemToSell = "log";
+            }
+            else if (sellInput == "12" || sellInput == "birch log" || sellInput == "birch")
+            {
+                itemValue = GetItemValue("birchlog");
+                sellInputName = "Birch Log";
+                actualItemToSell = "birchlog";
+            }
+            else if (sellInput == "13" || sellInput == "spruce log" || sellInput == "spruce")
+            {
+                itemValue = GetItemValue("sprucelog");
+                sellInputName = "Spruce Log";
+                actualItemToSell = "sprucelog";
+            }
+            else if (sellInput == "14" || sellInput == "oak log" || sellInput == "oak")
+            {
+                itemValue = GetItemValue("oaklog");
+                sellInputName = "Oak Log";
+                actualItemToSell = "oaklog";
+            }
+            else if (sellInput == "15" || sellInput == "darkoak log" || sellInput == "darkoak" ||
+                     sellInput == "dark oak" ||
+                     sellInput == "dark oak log")
+            {
+                itemValue = GetItemValue("darkoaklog");
+                sellInputName = "DarkOak Log";
+                actualItemToSell = "darkoaklog";
+            }
+            else if (sellInput == "16" || sellInput == "exit")
+            {
+                return;
+            }
+
+
+            UI.TypeWriteLine($"How many {sellInputName} would you like to sell: ");
+            int sellAmount = int.Parse(Console.ReadLine().Trim().ToLower());
+
+            if (GetItem(actualItemToSell) < sellAmount)
+            {
+                UI.TypeWriteLine("Sorry! You do not have enough " + sellInputName);
+                UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+                PrintShop(player, woodcutting, mining, inventory);
+            }
+
+            int totalPrice = itemValue * sellAmount;
+
+            UI.TypeWriteLine("");
+            UI.TypeWriteLine($"Would you like to sell {sellAmount} {sellInputName} for {totalPrice} [⛃ ]?");
+            UI.TypeWriteLine("1. Yes");
+            UI.TypeWrite("2. No");
+
+            int z = int.Parse(Console.ReadLine().Trim().ToLower());
+
+            if (z == 1)
+            {
+                // If u  want to sell
+
+                coins += totalPrice;
+                RemoveItem(actualItemToSell, sellAmount);
+
+                UI.TypeWriteLine("Items has been sold! Would you like to sell something else?");
+                UI.TypeWriteLine("1. Yes");
+                UI.TypeWrite("2. No");
+                int y = int.Parse(Console.ReadLine().Trim().ToLower());
+                if (y == 1)
+                {
+                    UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+                    PrintShop(player, woodcutting, mining, inventory);
+                }
+                else if (y == 2)
+                {
+                    return;
+                }
+
+            }
+            else if (z == 2)
+            {
+                UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+                PrintShop(player, woodcutting, mining, inventory);
+            }
+
+
+
+
+
+
         }
     }
 }
