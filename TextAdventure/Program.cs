@@ -17,7 +17,7 @@ public class Program
             
             
             Console.Clear();
-            UI.ConsoleDefault(player, woodcutting, mining, enemy);
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, enemy);
             UI.WriteLine("Well.. What's your next move!?");
             UI.WriteLine("");
             UI.WriteLine("1. Adventure");
@@ -83,7 +83,7 @@ public class Program
                     }
                     else
                     {
-                        UI.ConsoleDefault(player, woodcutting, mining, enemy);
+                        UI.ConsoleDefault(player, woodcutting, mining,inventory, enemy);
                         UI.WriteLine("You did not enter a valid input");
                         Console.ReadKey();
                     }
@@ -112,7 +112,7 @@ public class Program
             }
             else
             {
-                UI.ConsoleDefault(player, woodcutting, mining, enemy);
+                UI.ConsoleDefault(player, woodcutting, mining,inventory, enemy);
                 UI.WriteLine("You did not enter a valid input");
                 Console.ReadKey();
             }
@@ -225,5 +225,43 @@ public class Program
         Enemy x = new Enemy();
         x.GenerateEnemy("goblin");
         enemy = x;
+    }
+
+
+    private static void CombatChoices(Player player, Enemy enemy, Inventory inventory, Woodcutting woodcutting, Mining mining)
+    {
+        // Prologue story, ran once and never again.
+        int x = 0;
+
+        string choice = null;
+        UI.WriteLine("1. Melee");
+        UI.WriteLine("2. Range");
+        UI.WriteLine("3. Magic");
+        UI.WriteLine("4. Block");
+        UI.WriteLine("5. Retreat");
+
+        x = int.Parse(Console.ReadLine());
+
+        if (x == 1)
+        {
+            int damage = player.CalculateDamage("melee", player, enemy, inventory);
+        }
+        else if (x == 2)
+        {
+            int damage = player.CalculateDamage("range", player, enemy, inventory);
+        }
+        else if (x == 3)
+        {
+            int damage = player.CalculateDamage("magic", player, enemy, inventory);
+        }
+        else if (x == 4)
+        {
+            UI.TypeWrite("You try to block.. Nothing happens..");
+        }
+        else if (x == 5)
+        {
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            return;
+        }
     }
 }
