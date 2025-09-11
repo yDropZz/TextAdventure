@@ -103,7 +103,48 @@ public class Enemy : Entity
             RangeDefence = random.Next(level+30, level+25);
             MagicDefence = random.Next(-60+level, -40+level);
         }
-            
+        else if (type == "demon")
+        {
+            //Roll random level
+            level = random.Next(40, 51);
+            // Roll hp
+            float hpRoll = 5 + (level);
+            //Set hp to the roll
+            HPMax = (int)hpRoll;
+
+            Name = "Demon";
+            MeleeDefence = random.Next(25, 36);
+            RangeDefence = random.Next(level+20, level+25);
+            MagicDefence = random.Next(-100+level, -50+level);
+        }
+        else if (type == "dragon")
+        {
+            //Roll random level
+            level = random.Next(60, 76);
+            // Roll hp
+            float hpRoll = 45 + (level *1.5f);
+            //Set hp to the roll
+            HPMax = (int)hpRoll;
+
+            Name = "Jefferson Dragon";
+            MeleeDefence = random.Next(25, 36);
+            RangeDefence = random.Next(level+20, level+25);
+            MagicDefence = random.Next(-100+level, -50+level);
+        }
+        else if (type == "boss")
+        {
+            //Roll random level
+            level = 100;
+            // Roll hp
+            float hpRoll = (level * 2);
+            //Set hp to the roll
+            HPMax = (int)hpRoll;
+
+            Name = "Demon Lord";
+            MeleeDefence = 50;
+            RangeDefence = 50;
+            MagicDefence = 50;
+        }
         
     }
 }
