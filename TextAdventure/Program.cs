@@ -195,14 +195,6 @@ public class Program
             UI.TypeWrite("Enter your choice: ");
             choice = Console.ReadLine();
         }
-
-
-
-
-
-
-
-
     }
 
     public static void PlayIntro()

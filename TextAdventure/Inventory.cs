@@ -10,61 +10,83 @@ public class Inventory
     private int stone = 0;
     private int copper = 0;
     private int iron = 0;
+
     private int mithril = 0;
+
     //Gems
     //----------------------
     private int amethyst = 0;
     private int sapphire = 0;
     private int topaz = 0;
     private int ruby = 0;
+
     private int diamond = 0;
+
     //Wood
     //----------------------
     private int log = 0;
     private int birchlog = 0;
     private int sprucelog = 0;
     private int oaklog = 0;
+
     private int darkoaklog = 0;
+
     //Melee
     //-----------------------
     private int flintdagger = 0;
     private int stonemace = 0;
     private int copperspear = 0;
     private int ironsword = 0;
+
     private int mithrillongsword = 0;
+
     //Magic
     //-----------------------
     private int wand = 0;
     private int magicsigil = 0;
     private int staff = 0;
     private int spellbook = 0;
+
     private int darkgrimoire = 0;
+
     //Ranged
     //-----------------------
     private int slingshot = 0;
     private int bow = 0;
     private int crossbow = 0;
     private int longbow = 0;
+
     private int warbow = 0;
+
     //Pickaxes
     //-----------------------
     private int flintpickaxe = 0;
     private int stonepickaxe = 0;
     private int copperpickaxe = 0;
     private int ironpickaxe = 0;
+
     private int mithrilpickaxe = 0;
+
     //Axes
     //-----------------------
     private int flintaxe = 0;
     private int stoneaxe = 0;
     private int copperaxe = 0;
     private int ironaxe = 0;
+
     private int mithrilaxe = 0;
+
     //General
     //-----------------------
     private int coins = 0;
-    
-    
+
+    public int Coins
+    {
+        get => coins;
+        set => coins = value;
+    }
+
+
     public void AddItem(string item, int amount)
     {
         switch (item)
@@ -194,7 +216,7 @@ public class Inventory
                 break;
         }
     }
-    
+
     public int GetItem(string item)
     {
         switch (item)
@@ -224,7 +246,7 @@ public class Inventory
             case "birchlog":
                 return birchlog;
             case "sprucelog":
-               return sprucelog;
+                return sprucelog;
             case "oaklog":
                 return oaklog;
             case "darkoaklog":
@@ -282,6 +304,7 @@ public class Inventory
             case "coin":
                 return coins;
         }
+
         return 0;
     }
 
@@ -292,28 +315,29 @@ public class Inventory
             float value = 1;
             if (GetItem("flintdagger") == 1)
             {
-                value =2;
-                
+                value = 2;
             }
+
             if (GetItem("stonemace") == 1)
             {
-                value=3;
-                    
+                value = 3;
             }
+
             if (GetItem("copperspear") == 1)
             {
-                value=4;
-                        
+                value = 4;
             }
+
             if (GetItem("ironsword") == 1)
             {
-                value=5;
-                            
+                value = 5;
             }
+
             if (GetItem("mithrillongsword") == 1)
             {
-                value=6;
+                value = 6;
             }
+
             return value;
         }
         else if (type == "magic")
@@ -321,28 +345,29 @@ public class Inventory
             float value = 1;
             if (GetItem("wand") == 1)
             {
-                value =1;
-                
+                value = 1;
             }
+
             if (GetItem("magicsigil") == 1)
             {
-                value=2;
-                    
+                value = 2;
             }
+
             if (GetItem("staff") == 1)
             {
-                value=3;
-                        
+                value = 3;
             }
+
             if (GetItem("spellbook") == 1)
             {
-                value=4;
-                            
+                value = 4;
             }
+
             if (GetItem("darkgrimoire") == 1)
             {
-                value=5;
+                value = 5;
             }
+
             return value;
         }
         else if (type == "range")
@@ -350,33 +375,33 @@ public class Inventory
             float value = 1;
             if (GetItem("slingshot") == 1)
             {
-                value =1;
-                
+                value = 1;
             }
+
             if (GetItem("bow") == 1)
             {
-                value=2;
-                    
+                value = 2;
             }
+
             if (GetItem("crossbow") == 1)
             {
-                value=3;
-                        
+                value = 3;
             }
+
             if (GetItem("longbow") == 1)
             {
-                value=4;
-                            
+                value = 4;
             }
+
             if (GetItem("warbow") == 1)
             {
-                value=5;
+                value = 5;
             }
+
             return value;
         }
 
         return 0f;
-
     }
 
     public float GetToolValue(string type)
@@ -386,28 +411,29 @@ public class Inventory
             float value = 1;
             if (GetItem("flintdagger") == 1)
             {
-                value =2;
-                
+                value = 2;
             }
+
             if (GetItem("stonemace") == 1)
             {
-                value=3;
-                    
+                value = 3;
             }
+
             if (GetItem("copperspear") == 1)
             {
-                value=4;
-                        
+                value = 4;
             }
+
             if (GetItem("ironsword") == 1)
             {
-                value=5;
-                            
+                value = 5;
             }
+
             if (GetItem("mithrillongsword") == 1)
             {
-                value=6;
+                value = 6;
             }
+
             return value;
         }
         else if (type == "axe")
@@ -415,30 +441,32 @@ public class Inventory
             float value = 1;
             if (GetItem("wand") == 1)
             {
-                value =1;
-                
+                value = 1;
             }
+
             if (GetItem("magicsigil") == 1)
             {
-                value=2;
-                    
+                value = 2;
             }
+
             if (GetItem("staff") == 1)
             {
-                value=3;
-                        
+                value = 3;
             }
+
             if (GetItem("spellbook") == 1)
             {
-                value=4;
-                            
+                value = 4;
             }
+
             if (GetItem("darkgrimoire") == 1)
             {
-                value=5;
+                value = 5;
             }
+
             return value;
         }
+
         return 0;
     }
 
@@ -451,6 +479,26 @@ public class Inventory
         UI.WriteLine($"[Tools]");
         UI.WriteLine($"Pickaxe:");
     }
-    
 
+    public void PrintShop()
+    {
+        UI.TypeWrite($"Hello traveler, how may i help you?");
+        UI.WriteLine("1. Buy");
+        UI.WriteLine("2. Sell");
+        string mode = Console.ReadLine().Trim().ToLower();
+        Console.Clear();
+        if (mode == "buy" && mode =="1")
+        {
+            UI.TypeWriteLine("What would you like to buy?");
+            UI.WriteLine("[Resources]");
+            UI.WriteLine($"Flint:{flint}[1⛃], Stone:{stone}[2⛃], Copper:{copper}[5⛃], Iron:{iron}[20⛃], Mithril:{mithril}[100⛃]");
+            UI.WriteLine($"Amethyst:{amethyst}[2⛃], Sapphire:{sapphire}[4⛃], Topaz:{topaz}[10⛃], Ruby:{ruby}[40⛃], Diamond:{diamond}[200⛃]");
+            UI.WriteLine($"Log:{log}[1⛃], Birch logs:{birchlog}[2⛃], Spruce logs:{sprucelog}[5⛃], Oak logs:{oaklog}[20⛃], Dark oak logs:{darkoaklog}[100⛃]");
+            
+        }
+        else if (mode == "sell" && mode=="2")
+        {
+            
+        }
+    }
 }

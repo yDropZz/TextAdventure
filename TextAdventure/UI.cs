@@ -47,7 +47,7 @@ public class UI
         }
     }
 
-    public static void ConsoleDefault(Player player, Woodcutting woodcutting, Mining mining, Enemy enemy)
+    public static void ConsoleDefault(Player player, Woodcutting woodcutting, Mining mining,Inventory inventory, Enemy enemy)
     {
         Console.Clear();
         Console.WriteLine("");
@@ -62,7 +62,7 @@ public class UI
 //---------- Row 1 ------------
 
         Console.Write("                                                                                              ");
-        Console.Write($"{player.Name} ({player.HP}/{player.HPMax})");
+        Console.Write($"{player.Name} ({player.HP}/{player.HPMax}) {inventory.Coins} ⛃");
         Console.Write("                    ");
         Console.WriteLine("");
 //--------- Row 2 -------------
