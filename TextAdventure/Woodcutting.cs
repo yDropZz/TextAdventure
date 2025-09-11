@@ -8,6 +8,9 @@ public class Woodcutting
     private int woodcuttingXP = 0;
     private int woodcuttingXPReq = 20;
     private int woodcuttingLevel = 1;
+    public int WoodcuttingLevel { get => woodcuttingLevel; set => woodcuttingLevel = value; }
+    public int WoodcuttingXp { get => woodcuttingXP; set => woodcuttingXP = value; }
+    public int WoodcuttingXPREQ { get => woodcuttingXPReq; set => woodcuttingXPReq = value; }
 
     private void AddWoodcuttingExperience(int amount)
     {

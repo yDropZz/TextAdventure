@@ -444,7 +444,6 @@ public class Inventory
 
     public void PrintInventory()
     {
-        Console.Clear();
         UI.WriteLine("[Resources]");
         UI.WriteLine($"Flint:{flint}, Stone:{stone}, Copper:{copper}, Iron:{iron}, Mithril:{mithril}");
         UI.WriteLine($"Amethyst:{amethyst}, Sapphire:{sapphire}, Topaz:{topaz}, Ruby:{ruby}, Diamond:{diamond}");

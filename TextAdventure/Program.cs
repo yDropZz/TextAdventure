@@ -17,7 +17,7 @@ public class Program
             
             
             Console.Clear();
-            UI.ConsoleDefault(enemy);
+            UI.ConsoleDefault(player, woodcutting, mining, enemy);
             UI.WriteLine("Well.. What's your next move!?");
             UI.WriteLine("");
             UI.WriteLine("1. Adventure");
@@ -83,7 +83,7 @@ public class Program
                     }
                     else
                     {
-                        UI.ConsoleDefault();
+                        UI.ConsoleDefault(player, woodcutting, mining, enemy);
                         UI.WriteLine("You did not enter a valid input");
                         Console.ReadKey();
                     }
@@ -112,7 +112,7 @@ public class Program
             }
             else
             {
-                UI.ConsoleDefault();
+                UI.ConsoleDefault(player, woodcutting, mining, enemy);
                 UI.WriteLine("You did not enter a valid input");
                 Console.ReadKey();
             }

@@ -47,7 +47,7 @@ public class UI
         }
     }
 
-    public static void ConsoleDefault(Enemy enemy = null)
+    public static void ConsoleDefault(Player player, Woodcutting woodcutting, Mining mining, Enemy enemy)
     {
         Console.Clear();
         Console.WriteLine("");
@@ -62,7 +62,7 @@ public class UI
 //---------- Row 1 ------------
 
         Console.Write("                                                                                              ");
-        Console.Write("Player (7/10)");
+        Console.Write($"Player ({player.HP}/{player.HPMax})");
         Console.Write("                    ");
         Console.WriteLine("");
 //--------- Row 2 -------------
@@ -75,9 +75,9 @@ public class UI
 //--------- Row 4 -------------
         Console.WriteLine("");
         Console.Write("            ");
-        Console.Write($"⸕ Mining: 21 (15/35)⸕");
+        Console.Write($"⸕ Mining: {mining.MiningLevel} ({mining.MiningXP}/{mining.MiningXPReq})⸕");
         Console.Write("                  ");
-        Console.Write($"✎ Woodcutting: 51 (48/108)✎");
+        Console.Write($"✎ Woodcutting: {woodcutting.WoodcuttingLevel} ({woodcutting.WoodcuttingXp}/{woodcutting.WoodcuttingXPREQ})✎");
         Console.Write("                  ");
         Console.Write("❦ Melee: 10 (12/32)❦");
         Console.Write("                  ");

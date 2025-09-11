@@ -6,6 +6,7 @@ public class Player : Entity
     private int playerXp;
     private int playerXpReq = 20;
     private int meleeXp;
+    public int MeleeXP {get{return meleeXp;}}
     private int meleeXpReq = 20;
     private int rangeXp;
     private int rangeXpReq = 20;
