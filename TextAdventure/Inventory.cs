@@ -519,27 +519,27 @@ public class Inventory
             float value = 1;
             if (GetItem("wand") == 1)
             {
-                value = 1;
+                value = 2;
             }
 
             if (GetItem("magicsigil") == 1)
             {
-                value = 2;
+                value = 3;
             }
 
             if (GetItem("staff") == 1)
             {
-                value = 3;
+                value = 4;
             }
 
             if (GetItem("spellbook") == 1)
             {
-                value = 4;
+                value = 5;
             }
 
             if (GetItem("darkgrimoire") == 1)
             {
-                value = 5;
+                value = 6;
             }
 
             return value;
@@ -549,27 +549,27 @@ public class Inventory
             float value = 1;
             if (GetItem("slingshot") == 1)
             {
-                value = 1;
+                value = 2;
             }
 
             if (GetItem("bow") == 1)
             {
-                value = 2;
+                value = 3;
             }
 
             if (GetItem("crossbow") == 1)
             {
-                value = 3;
+                value = 4;
             }
 
             if (GetItem("longbow") == 1)
             {
-                value = 4;
+                value = 5;
             }
 
             if (GetItem("warbow") == 1)
             {
-                value = 5;
+                value = 6;
             }
 
             return value;
@@ -583,27 +583,27 @@ public class Inventory
         if (type == "pickaxe")
         {
             float value = 1;
-            if (GetItem("flintdagger") == 1)
+            if (GetItem("flintpickaxe") == 1)
             {
                 value = 2;
             }
 
-            if (GetItem("stonemace") == 1)
+            if (GetItem("stonepickaxe") == 1)
             {
                 value = 3;
             }
 
-            if (GetItem("copperspear") == 1)
+            if (GetItem("copperpickaxe") == 1)
             {
                 value = 4;
             }
 
-            if (GetItem("ironsword") == 1)
+            if (GetItem("ironpickaxe") == 1)
             {
                 value = 5;
             }
 
-            if (GetItem("mithrillongsword") == 1)
+            if (GetItem("mithrillpickaxe") == 1)
             {
                 value = 6;
             }
@@ -613,27 +613,27 @@ public class Inventory
         else if (type == "axe")
         {
             float value = 1;
-            if (GetItem("wand") == 1)
+            if (GetItem("flintaxe") == 1)
             {
                 value = 1;
             }
 
-            if (GetItem("magicsigil") == 1)
+            if (GetItem("stoneaxe") == 1)
             {
                 value = 2;
             }
 
-            if (GetItem("staff") == 1)
+            if (GetItem("copperaxe") == 1)
             {
                 value = 3;
             }
 
-            if (GetItem("spellbook") == 1)
+            if (GetItem("ironaxe") == 1)
             {
                 value = 4;
             }
 
-            if (GetItem("darkgrimoire") == 1)
+            if (GetItem("mithrilaxe") == 1)
             {
                 value = 5;
             }
