@@ -1044,4 +1044,526 @@ public class Inventory
 
         }
     }
+
+    public void PrintCraftingMenu(Player player, Woodcutting woodcutting, Mining mining, Inventory inventory)
+    {
+        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+        UI.WriteLine("{ Crafting Menu }");
+        UI.WriteLine("");
+        UI.WriteLine("[Pickaxes]");
+        UI.WriteLine("1. Flint Pickaxe: 10 Flint + 10 Logs");
+        UI.WriteLine("2. Stone Pickaxe: 20 Stone + 20 Birch Logs");
+        UI.WriteLine("3. Copper Pickaxe: 30 Copper + 30 Spruce Logs");
+        UI.WriteLine("4. Iron Pickaxe: 40 Iron + 40 Oak Logs");
+        UI.WriteLine("5. Mithril Pickaxe: 50 Mithril + 50 Dark Oak Logs");
+        // ----------------------------------------------------------------
+        UI.WriteLine("");
+        UI.WriteLine("[Axes]");
+        UI.WriteLine("6. Flint Axe: 10 Flint + 10 Logs");
+        UI.WriteLine("7. Stone Axe: 20 Stone + 20 Birch Logs");
+        UI.WriteLine("8. Copper Axe: 30 Copper + 30 Spruce Logs");
+        UI.WriteLine("9. Iron Axe: 40 Iron + 40 Oak Logs");
+        UI.WriteLine("10. Mithril Axe: 50 Mithril + 50 Dark Oak Logs");
+        //------------------------------------------------------------------
+        UI.WriteLine("");
+        UI.WriteLine("[Melee]");
+        UI.WriteLine("11. Flint Dagger: 25 Flint + 5 Logs");
+        UI.WriteLine("12. Stone Mace: 50 Stone + 10 Birch Logs");
+        UI.WriteLine("13. Copper Spear: 75 Copper + 15 Spruce Logs");
+        UI.WriteLine("14. Iron Sword: 100 Iron + 20 Oak Logs");
+        UI.WriteLine("15. Mithril Longsword: 150 Mithril + 25 Spruce Logs");
+        //-------------------------------------------------------------------
+        UI.WriteLine("");
+        UI.WriteLine("[Range]");
+        UI.WriteLine("16. Slingshot: 25 Logs");
+        UI.WriteLine("17. Bow: 50 Birch Logs");
+        UI.WriteLine("18. Crossbow: 75 Spruce Logs");
+        UI.WriteLine("19. Longbow: 100 Oak Logs");
+        UI.WriteLine("20. Warbow: 150 Dark Oak Logs");
+        //------------------------------------------
+        UI.WriteLine("");
+        UI.WriteLine("[Magic]");
+        UI.WriteLine("21. Wand: 25 Amethyst");
+        UI.WriteLine("22. Magic Sigil: 50 Sapphire");
+        UI.WriteLine("23. Staff: 75 Topaz");
+        UI.WriteLine("24. Spellbook: 100 Ruby");
+        UI.WriteLine("25. Dark Grimoire: 150 Diamond");
+        UI.WriteLine("26. Exit");
+        UI.WriteLine("");
+        UI.TypeWrite("What would you like to craft: ");
+
+        string craftedItemName = "item";
+        string craftingChoice = Console.ReadLine().Trim().ToLower();
+        int exit = 0;
+        bool successfullyCrafted = CraftItem(craftingChoice, woodcutting, mining, inventory, out exit);
+        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
+        
+        
+        // If failed to crafted, run this
+            if (successfullyCrafted)
+            {
+                UI.TypeWrite("Item has been crafted successfully!");
+                UI.TypeWrite("What would you like to do next?");
+                UI.TypeWriteLine("1. Craft something else");
+                UI.TypeWrite("2. Exit");
+        
+                string choice = Console.ReadLine().Trim().ToLower();
+                if (choice == "craft something else" || choice == "1")
+                {
+                    PrintCraftingMenu(player, woodcutting, mining, inventory);
+                }
+                else if (choice == "2" || choice == "exit")
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (exit == 1)
+                {
+                    return;
+                }
+                
+                // Not enough mats
+                UI.TypeWriteLine("You don't have enough materials to craft this.");
+                UI.TypeWriteLine("1. Craft something else");
+                UI.TypeWrite("2. Exit");
+                
+                // craft something new or exit
+                string failedCraft = Console.ReadLine().Trim().ToLower();
+                
+                if (failedCraft == "1" || failedCraft == "craft something else")
+                {
+                    PrintCraftingMenu(player, woodcutting, mining, inventory);
+                }
+                else if (failedCraft == "2" || failedCraft == "exit")
+                {
+                    return;
+                }
+                else return;
+            }
+        
+        
+        
+        
+    }
+
+    // Woodcutting, Mining, Inventory, is not needed at all, it's just to send a console default to display our level values 
+    // at the top of the UI. So this is really just spaghetti code :(
+    public bool CraftItem(string itemToCraft, Woodcutting woodcutting, Mining mining, Inventory inventory, out int exit)
+    {
+
+        exit = 0;
+        
+        if (itemToCraft == "1" || itemToCraft == "flint pickaxe")
+        {
+            if (flint >= 10 && log >= 10)
+            {
+                // Successfully crafted
+                flintpickaxe += 1;
+                flint -= 10;
+                log -= 10;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (itemToCraft == "2" || itemToCraft == "stone pickaxe")
+        {
+            if (stone >= 20 && birchlog >= 20)
+            {
+                // Successfully crafted
+                stonepickaxe += 1;
+                stone -= 20;
+                birchlog -= 20;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "3" || itemToCraft == "copper pickaxe")
+        {
+            if (copper >= 30 && sprucelog >= 30)
+            {
+                // Successfully crafted
+                copperpickaxe += 1;
+                copper -= 30;
+                sprucelog -= 30;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "4" || itemToCraft == "iron pickaxe")
+        { 
+            if (iron >= 40 && oaklog >= 40)
+            {
+                // Successfully crafted
+                ironpickaxe += 1;
+                iron -= 40;
+                oaklog -= 40;
+                
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "5" || itemToCraft == "mithril pickaxe")
+        {
+            if (mithril >= 50 && darkoaklog >= 50)
+            {
+                // Successfully crafted
+                mithrilpickaxe += 1;
+                mithril -= 50;
+                darkoaklog -= 50;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "6" || itemToCraft == "flint axe")
+        {
+            if (flint >= 10 && log >= 10)
+            {
+                // Successfully crafted
+                flintaxe += 1;
+                flint -= 10;
+                log -= 10;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "7" || itemToCraft == "stone axe")
+        {
+            if (stone >= 20 && birchlog >= 20)
+            {
+                // Successfully crafted
+                stoneaxe += 1;
+                stone -= 20;
+                birchlog -= 20;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "8" || itemToCraft == "copper axe")
+        {
+            if (copper >= 30 && sprucelog >= 30)
+            {
+                // Successfully crafted
+                copperaxe += 1;
+                copper -= 30;
+                sprucelog -= 30;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+            
+        }
+        else if (itemToCraft == "9" || itemToCraft == "iron pickaxe")
+        {
+            if (iron >= 40 && oaklog >= 40)
+            {
+                // Successfully crafted
+                ironpickaxe += 1;
+                iron -= 40;
+                oaklog -= 40;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "10" || itemToCraft == "mithril pickaxe")
+        {
+            if (mithril >= 50 && darkoaklog >= 50)
+            {
+                // Successfully crafted
+                mithrilpickaxe += 1;
+                mithril -= 50;
+                darkoaklog -= 50;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "11" || itemToCraft == "flint dagger")
+        {
+            if (flint >= 25 && log >= 5)
+            {
+                // Successfully crafted
+                flintdagger += 1;
+                flint -= 25;
+                log -= 5;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "12" || itemToCraft == "stone mace")
+        {
+            if (stone >= 50 && birchlog >= 10)
+            {
+                // Successfully crafted
+                stonemace += 1;
+                stone -= 50;
+                birchlog -= 10;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "13" || itemToCraft == "copper spear")
+        {
+            if (copper >= 75 && sprucelog >= 15)
+            {
+                // Successfully crafted
+                copperspear += 1;
+                copper -= 75;
+                sprucelog -= 15;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "14" || itemToCraft == "iron sword")
+        {
+            if (iron >= 100 && oaklog >= 20)
+            {
+                // Successfully crafted
+                ironsword += 1;
+                iron -= 100;
+                oaklog -= 20;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "15" || itemToCraft == "mithril longsword")
+        {
+            if (mithril >= 150 && darkoaklog >= 25)
+            {
+                // Successfully crafted
+                mithrillongsword += 1;
+                mithril -= 150;
+                darkoaklog -= 25;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "16" || itemToCraft == "slingshot")
+        {
+            if (log >= 25)
+            {
+                // Successfully crafted
+                slingshot += 1;
+                log -= 25;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "17" || itemToCraft == "bow")
+        {
+            if (birchlog >= 50)
+            {
+                // Successfully crafted
+                bow += 1;
+                birchlog -= 50;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "18" || itemToCraft == "crossbow")
+        {
+            if (sprucelog >= 75)
+            {
+                // Successfully crafted
+                crossbow += 1;
+                sprucelog -= 75;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "19" || itemToCraft == "longbow")
+        {
+            if (oaklog >= 100)
+            {
+                // Successfully crafted
+                longbow += 1;
+                oaklog -= 100;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "20" || itemToCraft == "warbow")
+        {
+            if (darkoaklog >= 150)
+            {
+                // Successfully crafted
+                warbow += 1;
+                darkoaklog -= 150;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "21" || itemToCraft == "wand")
+        {
+            if (amethyst >= 25)
+            {
+                // Successfully crafted
+                wand += 1;
+                amethyst -= 25;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "22" || itemToCraft == "magic sigil")
+        {
+            if (sapphire >= 50)
+            {
+                // Successfully crafted
+                magicsigil += 1;
+                sapphire -= 50;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "23" || itemToCraft == "staff")
+        {
+            if (topaz >= 75)
+            {
+                // Successfully crafted
+                staff += 1;
+                topaz -= 75;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "24" || itemToCraft == "spellbook")
+        {
+            if (ruby >= 100)
+            {
+                // Successfully crafted
+                spellbook += 1;
+                ruby -= 100;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        else if (itemToCraft == "25" || itemToCraft == "dark grimoire")
+        {
+            if (diamond >= 150)
+            {
+                // Successfully crafted
+                darkgrimoire += 1;
+                diamond -= 150;
+                return true;
+            }
+            else
+            {
+                // Failed to craft
+                return false;
+            }
+        }
+        
+        if (itemToCraft == "26" || itemToCraft == "exit")
+        {
+
+            exit = 1;
+
+
+        }
+        
+        return false;
+
+    }
+    
+    
 }
