@@ -486,30 +486,30 @@ public class Inventory
     {
         if (type == "melee")
         {
-            float value = 1;
+            float value = 1f;
             if (GetItem("flintdagger") == 1)
             {
-                value = 2;
+                value = 1.2f;
             }
 
             if (GetItem("stonemace") == 1)
             {
-                value = 3;
+                value = 1.4f;
             }
     
             if (GetItem("copperspear") == 1)
             {
-                value = 4;
+                value = 1.6f;
             }
 
             if (GetItem("ironsword") == 1)
             {
-                value = 5;
+                value = 1.8f;
             }
 
             if (GetItem("mithrillongsword") == 1)
             {
-                value = 6;
+                value = 2f;
             }
 
             return value;
@@ -519,27 +519,27 @@ public class Inventory
             float value = 1;
             if (GetItem("wand") == 1)
             {
-                value = 2;
+                value = 1.2f;
             }
 
             if (GetItem("magicsigil") == 1)
             {
-                value = 3;
+                value = 1.4f;
             }
 
             if (GetItem("staff") == 1)
             {
-                value = 4;
+                value = 1.6f;
             }
 
             if (GetItem("spellbook") == 1)
             {
-                value = 5;
+                value = 1.8f;
             }
 
             if (GetItem("darkgrimoire") == 1)
             {
-                value = 6;
+                value = 2f;
             }
 
             return value;
@@ -549,27 +549,27 @@ public class Inventory
             float value = 1;
             if (GetItem("slingshot") == 1)
             {
-                value = 2;
+                value = 1.2f;
             }
 
             if (GetItem("bow") == 1)
             {
-                value = 3;
+                value = 1.4f;
             }
 
             if (GetItem("crossbow") == 1)
             {
-                value = 4;
+                value = 1.6f;
             }
 
             if (GetItem("longbow") == 1)
             {
-                value = 5;
+                value = 1.8f;
             }
 
             if (GetItem("warbow") == 1)
             {
-                value = 6;
+                value = 2f;
             }
 
             return value;

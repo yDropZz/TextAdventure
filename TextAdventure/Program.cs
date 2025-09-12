@@ -445,7 +445,7 @@ public class Program
                     enemy.RemoveHp(damage);
                     UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     UI.WriteLine($"{enemy.Name} took {damage} damage.");
-                    player.AddXp(damage *2,1);
+                    player.AddXp(damage,1);
                     Console.ReadKey();
                     break;
                 }
@@ -456,7 +456,7 @@ public class Program
                     enemy.RemoveHp(damage);
                     UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     UI.WriteLine($"{enemy.Name} took {damage} damage.");
-                    player.AddXp(damage *2,2);
+                    player.AddXp(damage,2);
                     Console.ReadKey();
                     break;
                 }
@@ -467,7 +467,7 @@ public class Program
                     enemy.RemoveHp(damage);
                     UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     UI.WriteLine($"{enemy.Name} took {damage} damage.");
-                    player.AddXp(damage *2,3);
+                    player.AddXp(damage,3);
                     Console.ReadKey();
                     break;
                 }

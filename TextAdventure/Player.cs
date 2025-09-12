@@ -36,7 +36,8 @@ public class Player : Entity
                 playerXp -= playerXpReq;
                 playerLevel++;
 
-                playerXpReq += 4;
+                playerXpReq +=8;
+                HPMax += 4;
                 UI.WriteLine("You leveled up! You are now level: " + playerLevel);
             }
         }
@@ -48,7 +49,7 @@ public class Player : Entity
                 meleeXp -= meleeXpReq;
                 Melee++;
 
-                meleeXpReq += 4;
+                meleeXpReq += 8;
                 UI.WriteLine("You leveled up melee! You are now level: " + Melee);
                 UI.WriteLine("Your max hp increased with +2");
                 HPMax += 2;
@@ -62,7 +63,7 @@ public class Player : Entity
                 rangeXp -= rangeXpReq;
                 Range++;
 
-                rangeXpReq += 4;
+                rangeXpReq += 8;
                 UI.WriteLine("You leveled up range! You are now level: " + Range);
             }
         }
@@ -74,7 +75,7 @@ public class Player : Entity
                 magicXp -= magicXpReq;
                 Magic++;
 
-                magicXpReq += 4;
+                magicXpReq += 8;
                 UI.WriteLine("You leveled up magic! You are now level: " + Magic);
             }
         }
