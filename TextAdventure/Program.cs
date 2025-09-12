@@ -136,6 +136,7 @@ public class Program
             Console.Clear();
             if (player.IsDead)
             {
+                player.IsDead = false;
                 return;
             }
         }
@@ -178,6 +179,7 @@ public class Program
             Console.Clear();
             if (player.IsDead)
             {
+                player.IsDead = false;
                 return;
             }
         }
@@ -220,6 +222,7 @@ public class Program
             Console.Clear();
             if (player.IsDead)
             {
+                player.IsDead = false;
                 return;
             }
         }
@@ -282,6 +285,7 @@ public class Program
             Console.Clear();
             if (player.IsDead)
             {
+                player.IsDead = false;
                 return;
             }
         }
