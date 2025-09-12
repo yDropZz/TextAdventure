@@ -82,7 +82,7 @@ public class Inventory
 
     //General
     //-----------------------
-    private int coins = 1000;
+    private int coins = 0;
 
     public int Coins
     {
