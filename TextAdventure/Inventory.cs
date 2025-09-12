@@ -1102,8 +1102,8 @@ public class Inventory
         // If failed to crafted, run this
             if (successfullyCrafted)
             {
-                UI.TypeWrite("Item has been crafted successfully!");
-                UI.TypeWrite("What would you like to do next?");
+                UI.TypeWriteLine("Item has been crafted successfully!");
+                UI.TypeWriteLine("What would you like to do next?");
                 UI.TypeWriteLine("1. Craft something else");
                 UI.TypeWrite("2. Exit");
         

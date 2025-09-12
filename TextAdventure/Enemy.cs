@@ -121,7 +121,7 @@ public class Enemy : Entity
 
                 Name = "Orc";
                 MeleeDefence = random.Next(20, 30);
-                RangeDefence = random.Next(level+30, level+25);
+                RangeDefence = random.Next(level+25, level+30);
                 MagicDefence = random.Next(-60+level, -40+level);
             }
         }
