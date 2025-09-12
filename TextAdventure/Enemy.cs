@@ -175,9 +175,9 @@ public class Enemy : Entity
             Melee = (int)damageroll;
 
             Name = "Demon Lord";
-            MeleeDefence = 50;
-            RangeDefence = 50;
-            MagicDefence = 50;
+            MeleeDefence = 90;
+            RangeDefence = 90;
+            MagicDefence = 90;
         }
         HP = HPMax;
         IsDead = false;

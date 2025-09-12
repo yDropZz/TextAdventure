@@ -64,7 +64,7 @@ public class Inventory
 
     //Pickaxes
     //-----------------------
-    private int flintpickaxe = 0;
+    private int flintpickaxe = 1;
     private int stonepickaxe = 0;
     private int copperpickaxe = 0;
     private int ironpickaxe = 0;
@@ -73,7 +73,7 @@ public class Inventory
 
     //Axes
     //-----------------------
-    private int flintaxe = 0;
+    private int flintaxe = 1;
     private int stoneaxe = 0;
     private int copperaxe = 0;
     private int ironaxe = 0;

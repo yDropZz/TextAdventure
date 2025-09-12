@@ -37,21 +37,24 @@ public class Woodcutting
     {
         int rolls = 1;
             
-            if (inventory.GetItem("stoneaxe") == 1)
+            if (inventory.GetItem("stoneaxe") >= 1)
             {
-                rolls++;
-                if (inventory.GetItem("copperaxe") == 1)
-                {
-                    rolls++;
-                    if (inventory.GetItem("ironaxe") == 1)
-                    {
-                        rolls++;
-                        if (inventory.GetItem("mithrilaxe") == 1)
-                        {
-                            rolls++;
-                        }
-                    }
-                }
+                rolls=2;
+                
+            }
+            if (inventory.GetItem("copperaxe") >= 1)
+            {
+                rolls=3;
+                    
+            }
+            if (inventory.GetItem("ironaxe") >= 1)
+            {
+                rolls=4;
+                        
+            }
+            if (inventory.GetItem("mithrilaxe") >= 1)
+            {
+                rolls=5;
             }
 
             Random random = new Random();

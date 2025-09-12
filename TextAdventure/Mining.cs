@@ -38,21 +38,24 @@ public class Mining
         int rolls = 1;
         
             
-            if (inventory.GetItem("stonepickaxe") == 1)
+            if (inventory.GetItem("stonepickaxe") >= 1)
             {
-                rolls++;
-                if (inventory.GetItem("copperpickaxe") == 1)
-                {
-                    rolls++;
-                    if (inventory.GetItem("ironpickaxe") == 1)
-                    {
-                        rolls++;
-                        if (inventory.GetItem("mithrilpickaxe") == 1)
-                        {
-                            rolls++;
-                        }
-                    }
-                }
+                rolls=2;
+                
+            }
+            if (inventory.GetItem("copperpickaxe") >= 1)
+            {
+                rolls=3;
+                    
+            }
+            if (inventory.GetItem("ironpickaxe") >= 1)
+            {
+                rolls=4;
+                        
+            }
+            if (inventory.GetItem("mithrilpickaxe") >= 1)
+            {
+                rolls=5;
             }
 
             Random random = new Random();
