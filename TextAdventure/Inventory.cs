@@ -496,7 +496,7 @@ public class Inventory
             {
                 value = 3;
             }
-
+    
             if (GetItem("copperspear") == 1)
             {
                 value = 4;

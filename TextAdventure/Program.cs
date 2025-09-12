@@ -22,9 +22,9 @@ public class Program
             UI.WriteLine("2. Mine");
             UI.WriteLine("3. Woodcutting");
             UI.WriteLine("4. Inventory");
-            UI.WriteLine("5. Town");
-            UI.WriteLine("6. Rest");
-            UI.WriteLine("7. Help");
+            UI.WriteLine("5. Craft");
+            UI.WriteLine("6. Town");
+            UI.WriteLine("7. Rest");
             UI.WriteLine("8. Exit");
             
             string input = Console.ReadLine().Trim().ToLower();
@@ -37,7 +37,6 @@ public class Program
                 mining.Mine(player, woodcutting, inventory);
                 while (true)
                 {
-                    Console.Clear();
                     UI.WriteLine("Mine again?");
                     UI.WriteLine("1. Yes");
                     UI.WriteLine("2. No"); 
@@ -53,7 +52,7 @@ public class Program
                     }
                     else
                     {
-                        Console.Clear();
+                        UI.ConsoleDefault(player, woodcutting, mining, inventory, null);
                         UI.WriteLine("You did not enter a valid input");
                         Console.ReadKey();
                     }
@@ -64,7 +63,6 @@ public class Program
                 woodcutting.CutWood(player, mining, inventory);
                 while (true)
                 {
-                    Console.Clear();
                     UI.WriteLine("Cut again?");
                     UI.WriteLine("1. Yes");
                     UI.WriteLine("2. No"); 
@@ -93,7 +91,7 @@ public class Program
             }
             else if (input == "5" || input == "craft")
             {
-                
+                inventory.PrintCraftingMenu(player, woodcutting, mining, inventory);
             }
             else if (input == "6" || input == "town")
             {
@@ -101,7 +99,6 @@ public class Program
             }
             else if (input == "7" || input == "rest")
             {
-                Console.Clear();
                 UI.ConsoleDefault(player,woodcutting, mining, inventory, null);
                 UI.TypeWriteLine($"{player.Name} rested and regained their health.");
                 player.HP = player.HPMax;
@@ -126,7 +123,6 @@ public class Program
     {
         
         //Forest
-        Console.Clear();
         UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
         UI.TypeWriteLine($"{player.Name} enters the forest, might be a few dangerous along the way before you reach the next part...");
         Console.ReadKey();
@@ -321,10 +317,10 @@ public class Program
         Console.Clear();
         Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine(""); Console.WriteLine("");
 
-        UI.TypeWriteLine($"Hey! ... Who are you?");
+        UI.TypeWriteLine($"[Mysterious person] Hey! ... Who are you?");
         UI.TypeWrite("Enter your name: ");
         player.Name = Console.ReadLine();
-        UI.TypeWriteLine($"Oh... Hey {player.Name}... I'm glad you're okay!");
+        UI.TypeWriteLine($"[Mysterious person] Oh... Hey {player.Name}... I'm glad you're okay!");
         UI.TypeWriteLine("");
         UI.TypeWriteLine("1. What happened?");
         UI.TypeWriteLine("2. Who are you?");
@@ -333,11 +329,11 @@ public class Program
         choice = Console.ReadLine();
         if (choice == "1")
         {
-            UI.TypeWriteLine("I don't know.. I heard a loud sound and then saw you falling from high above..");
+            UI.TypeWriteLine("[Mysterious person] I don't know.. I heard a loud sound and then saw you falling from high above..");
         }
         else if (choice == "2")
         {
-            UI.TypeWriteLine("I'm the elven mage of Isakeya, you're currently in the forest of Hitoria.");
+            UI.TypeWriteLine("[Mysterious person] I'm the elven mage of Isakeya, you're currently in the forest of Hitoria.");
         }
         else if (choice == "skip")
             return;
@@ -345,7 +341,7 @@ public class Program
         choice = null;
 
         UI.TypeWriteLine("*I seem to remember nothing of my life, where I'm at, or anything but my name.*");
-        UI.TypeWriteLine("I suppose you wish to know how you ended up here..");
+        UI.TypeWriteLine("[Mysterious person] I suppose you wish to know how you ended up here..");
         UI.TypeWriteLine("");
         UI.TypeWriteLine("1. Yes, of course");
         UI.TypeWriteLine("2. No.");
@@ -355,7 +351,7 @@ public class Program
 
         if (choice == "1")
         {
-            UI.TypeWriteLine("I'm afraid you'll have to figure that out by yourself.");
+            UI.TypeWriteLine("[Mysterious person] I'm afraid you'll have to figure that out by yourself.");
         }
 
         if (choice == "2")
@@ -374,11 +370,11 @@ public class Program
 
         if (choice == "1")
         {
-            UI.TypeWriteLine("Well, there's lots of thing you can do here in Hitoria!");
-            UI.TypeWriteLine("For example! We need lots of help with monsters roaming the area.");
-            UI.TypeWriteLine("On top of that, you seem rather weak at the moment, you can train that up!");
-            UI.TypeWriteLine("You can mine ores/gems and chop wood for different forms of logs");
-            UI.TypeWriteLine("You can use these resources to craft new weapons and other stuff");
+            UI.TypeWriteLine("[Mysterious person] Well, there's lots of thing you can do here in Hitoria!");
+            UI.TypeWriteLine("[Mysterious person] For example! We need lots of help with monsters roaming the area.");
+            UI.TypeWriteLine("[Mysterious person] On top of that, you seem rather weak at the moment, you can train that up!");
+            UI.TypeWriteLine("[Mysterious person] You can mine ores/gems and chop wood for different forms of logs");
+            UI.TypeWriteLine("[Mysterious person] You can use these resources to craft new weapons and other stuff");
             UI.TypeWriteLine("");
             UI.TypeWriteLine("1. Alright, Thanks for your help!");
             UI.TypeWriteLine("2. I'll get going then");

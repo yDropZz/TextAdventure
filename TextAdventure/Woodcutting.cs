@@ -35,8 +35,7 @@ public class Woodcutting
 
     private void RollWoodcuttingTable(Player player, Mining mining, Inventory inventory)
     {
-        int rolls = 1000;
-        
+        int rolls = 1;
             
             if (inventory.GetItem("stoneaxe") == 1)
             {
@@ -156,7 +155,7 @@ public class Woodcutting
             
             UI.WriteLine($"You have a total of: {inventory.GetItem("log")} logs, {inventory.GetItem("birchlog")} birch logs, {inventory.GetItem("sprucelog")} spruce logs, {inventory.GetItem("oaklog")} oak logs, {inventory.GetItem("darkoaklog")}  dark oak logs");
             UI.WriteLine(woodcuttingXP + "/" + woodcuttingXPReq);
-            Console.ReadKey();
+            UI.WriteLine("");
     }
 
 

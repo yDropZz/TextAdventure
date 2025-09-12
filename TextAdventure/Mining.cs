@@ -245,7 +245,7 @@ public class Mining
             UI.WriteLine($"You have a total of: {inventory.GetItem("flint")} flint, {inventory.GetItem("stone")} stone, {inventory.GetItem("copper")} copper, {inventory.GetItem("iron")} iron, {inventory.GetItem("mithril")}  mithril");
             UI.WriteLine($"You have a total of: {inventory.GetItem("amethyst")} amethyst, {inventory.GetItem("sapphire")} sapphire, {inventory.GetItem("topaz")} topaz, {inventory.GetItem("ruby")} ruby, {inventory.GetItem("diamond")}  diamond");
             UI.WriteLine(miningXP + "/" + miningXPReq);
-            Console.ReadKey();
+            UI.WriteLine("");
     }
 
 

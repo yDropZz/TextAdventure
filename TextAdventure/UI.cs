@@ -61,8 +61,8 @@ public class UI
 
 //---------- Row 1 ------------
 
-        Console.Write("                                                                                              ");
-        Console.Write($"{player.Name} ({player.HP}/{player.HPMax}) {inventory.Coins} ⛃");
+        Console.Write("                                                                                         ");
+        Console.Write($"[{player.PlayerLevel}] {player.Name} ({player.HP}/{player.HPMax}) {inventory.Coins} ⛃");
         Console.Write("                    ");
         Console.WriteLine("");
 //--------- Row 2 -------------

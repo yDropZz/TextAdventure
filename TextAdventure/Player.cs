@@ -3,6 +3,13 @@
 public class Player : Entity
 {
     private int playerLevel = 1;
+
+    public int PlayerLevel
+    {
+        get => playerLevel;
+        set => playerLevel = value;
+    }
+
     private int playerXp;
     private int playerXpReq = 20;
     private int meleeXp;
