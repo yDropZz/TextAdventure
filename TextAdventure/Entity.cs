@@ -63,7 +63,6 @@ public class Entity
     
     public void RemoveHp(int amount)
     {
-        UI.WriteLine($"{this.name} took {amount} damage.");
         this.hp -= amount;
         
         if(this.hp <= 0)

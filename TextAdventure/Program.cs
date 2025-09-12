@@ -14,8 +14,6 @@ public class Program
 
         while (true)
         {
-            
-            
             Console.Clear();
             UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
             UI.WriteLine("Well.. What's your next move!?");
@@ -30,80 +28,24 @@ public class Program
             UI.WriteLine("8. Exit");
             
             string input = Console.ReadLine().Trim().ToLower();
-            Console.WriteLine(input);
             if (input == "1" || input == "adventure")
             {
-                Console.Clear();
-                UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
-                UI.TypeWriteLine($"{player.Name} enters the forest, might be a few dangerous along the way before you reach the next part...");
-                Console.ReadKey();
-                Console.Clear();
-                for (int i = 0; i < 5; i++)
-                {
-                    UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
-                    UI.TypeWriteLine($"As {player.Name} wanders through the forest they hear a sound..!");
-                    enemy.GenerateEnemy("goblin");
-                    CombatChoices(player, enemy, inventory, woodcutting, mining);
-                    Console.Clear();
-                    if (player.IsDead)
-                    {
-                        break;
-                    }
-
-                    while (true)
-                    {
-                        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
-                        UI.WriteLine("Would you like to continue deeper into the forest?");
-                        UI.WriteLine("1. Yes");
-                        UI.WriteLine("2. No");
-                        string input2 = Console.ReadLine().Trim().ToLower();
-
-                        if (input2 == "yes" || input2 == "1")
-                        {
-                            break;
-                         
-                        }
-                        else if (input2 == "no" || input2 == "2")
-                        {
-                            player.IsDead = true;
-                        break;
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            UI.WriteLine("Invalid input, try again");
-                        }
-                    }
-                    if (player.IsDead)
-                    {
-                        break;
-                    }
-                }
-
-                if (!player.IsDead)
-                {
-                    
-                }
-                else
-                {
-                    player.IsDead = false;
-                }
-                
+                Adventure(player, woodcutting, mining, inventory,enemy);
             }
             else if (input == "2" || input == "mine")
             {
-                mining.Mine(inventory);
+                mining.Mine(player, woodcutting, inventory);
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("Mine again?");
-                    Console.WriteLine("1. Yes");
-                    Console.WriteLine("2. No"); 
+                    UI.WriteLine("Mine again?");
+                    UI.WriteLine("1. Yes");
+                    UI.WriteLine("2. No"); 
                     input = Console.ReadLine().Trim().ToLower();
 
                     if (input == "1" || input == "yes")
                     {
-                        mining.Mine(inventory);
+                        mining.Mine(player, woodcutting, inventory);
                     }
                     else if (input == "2" || input == "no")
                     {
@@ -112,25 +54,25 @@ public class Program
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("You did not enter a valid input");
+                        UI.WriteLine("You did not enter a valid input");
                         Console.ReadKey();
                     }
                 }
             }
             else if (input == "3" || input == "woodcutting")
             {
-                woodcutting.CutWood(inventory);
+                woodcutting.CutWood(player, mining, inventory);
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("Cut again?");
-                    Console.WriteLine("1. Yes");
-                    Console.WriteLine("2. No"); 
+                    UI.WriteLine("Cut again?");
+                    UI.WriteLine("1. Yes");
+                    UI.WriteLine("2. No"); 
                     input = Console.ReadLine().Trim().ToLower();
 
                     if (input == "1" || input == "yes")
                     {
-                        woodcutting.CutWood(inventory);
+                        woodcutting.CutWood(player, mining, inventory);
                     }
                     else if (input == "2" || input == "no")
                     {
@@ -149,21 +91,21 @@ public class Program
                 inventory.PrintInventory();
                 Console.ReadKey();
             }
-            else if (input == "5" || input == "town")
+            else if (input == "5" || input == "craft")
             {
                 
             }
-            else if (input == "6" || input == "rest")
+            else if (input == "6" || input == "town")
+            {
+                inventory.PrintShop(player,woodcutting,mining,inventory);
+            }
+            else if (input == "7" || input == "rest")
             {
                 Console.Clear();
                 UI.ConsoleDefault(player,woodcutting, mining, inventory, null);
                 UI.TypeWriteLine($"{player.Name} rested and regained their health.");
                 player.HP = player.HPMax;
                 Console.ReadKey();
-            }
-            else if (input == "7" || input == "help")
-            {
-                
             }
             else if (input == "8" || input == "exit")
             {
@@ -178,6 +120,193 @@ public class Program
             }
 
         }
+    }
+
+    private static void Adventure(Player player, Woodcutting  woodcutting, Mining mining, Inventory inventory, Enemy enemy)
+    {
+        
+        //Forest
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        UI.TypeWriteLine($"{player.Name} enters the forest, might be a few dangerous along the way before you reach the next part...");
+        Console.ReadKey();
+        Console.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine($"As {player.Name} wanders through the forest they hear a sound..!");
+            enemy.GenerateEnemy("forest");
+            CombatChoices(player, enemy, inventory, woodcutting, mining);
+            Console.Clear();
+            if (player.IsDead)
+            {
+                return;
+            }
+        }
+        UI.TypeWriteLine($"{player.Name} manage to push forward and make it through the forest...");
+        Console.ReadKey();
+        while (true)
+        {
+            Console.Clear();
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine("Do you wanna continue?");
+            UI.WriteLine("1. Yes");
+            UI.WriteLine("2. No");
+            string input = Console.ReadLine().Trim().ToLower();
+            if (input == "1" || input == "yes")
+            {
+                break;
+            }
+            else if (input == "2" || input == "no")
+            {
+                return;
+            }
+            else
+            {
+                UI.WriteLine("You did not enter a valid input, try again.");
+                Console.ReadKey();
+            }
+        }
+        //Dark forest
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        UI.TypeWriteLine($"{player.Name} continues forward and enters the Dark forest, even stronger dangerous will now be in your path...");
+        Console.ReadKey();
+        Console.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine($"As {player.Name} tread carefully through the Dark forest they hear a screech..!");
+            enemy.GenerateEnemy("darkforest");
+            CombatChoices(player, enemy, inventory, woodcutting, mining);
+            Console.Clear();
+            if (player.IsDead)
+            {
+                return;
+            }
+        }
+        UI.TypeWriteLine($"{player.Name} manage to make it out alive and makes it through the Dark forest...");
+        Console.ReadKey();
+        while (true)
+        {
+            Console.Clear();
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine("Do you wanna continue?");
+            UI.WriteLine("1. Yes");
+            UI.WriteLine("2. No");
+            string input = Console.ReadLine().Trim().ToLower();
+            if (input == "1" || input == "yes")
+            {
+                break;
+            }
+            else if (input == "2" || input == "no")
+            {
+                return;
+            }
+            else
+            {
+                UI.WriteLine("You did not enter a valid input, try again.");
+                Console.ReadKey();
+            }
+        }
+        //Dark dungeon
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        UI.TypeWriteLine($"{player.Name} cut through the forest and stumble upon an entrance to a dungeon, a stench of evil linger...");
+        Console.ReadKey();
+        Console.Clear();
+        for (int i = 0; i < 4; i++)
+        {
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine($"As {player.Name} take brave steps through the dungeon were they hear a roar..!");
+            enemy.GenerateEnemy("darkdungeon");
+            CombatChoices(player, enemy, inventory, woodcutting, mining);
+            Console.Clear();
+            if (player.IsDead)
+            {
+                return;
+            }
+        }
+        // Dragon
+        UI.TypeWriteLine($"{player.Name} get to the end of the dungeon were a sleeping dragon guards an ominous gate...");
+        Console.ReadKey();
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        enemy.GenerateEnemy("demongate");
+        CombatChoices(player, enemy, inventory, woodcutting, mining);
+        Console.Clear();
+        if (player.IsDead)
+        {
+            return;
+        }
+        UI.TypeWriteLine($"{player.Name} best the dragon and now the gate is yours to enter...");
+        Console.ReadKey();
+        Console.Clear();
+        while (true)
+        {
+            Console.Clear();
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            UI.TypeWriteLine("Do you wanna continue?");
+            UI.WriteLine("1. Yes");
+            UI.WriteLine("2. No");
+            string input = Console.ReadLine().Trim().ToLower();
+            if (input == "1" || input == "yes")
+            {
+                break;
+            }
+            else if (input == "2" || input == "no")
+            {
+                return;
+            }
+            else
+            {
+                UI.WriteLine("You did not enter a valid input, try again.");
+                Console.ReadKey();
+            }
+        }
+        //Demon realm
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        UI.TypeWriteLine($"{player.Name} enters the gate. Hellfire surrounds them as they stand in a ruined castled.");
+        UI.TypeWriteLine($"Long in front of them sits a creature covered in ragged nobel drapes upon a burnt throne. A strong sense of overpowering evil emits from the creature...");
+        Console.ReadKey();
+        Console.Clear();
+        UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+        UI.TypeWriteLine($"[Mysterious creature] You dare enter MY REALM, who do you think you are you low life. I will crush you into a million PIECES! FOR I AM THE DARK DEMON LORD!!");
+        Console.ReadKey();
+        Console.Clear();
+        UI.TypeWriteLine($"The Demon lord jumps down from his throne, landing just a few meters away from you... prepare for combat..!");
+        Console.ReadKey();
+        Console.Clear();
+        for (int i = 0; i < 1; i++)
+        {
+            UI.ConsoleDefault(player, woodcutting, mining,inventory, null);
+            enemy.GenerateEnemy("demonrealm");
+            CombatChoices(player, enemy, inventory, woodcutting, mining);
+            Console.Clear();
+            if (player.IsDead)
+            {
+                return;
+            }
+        }
+        UI.TypeWriteLine($"...");
+        Console.ReadKey();
+        Console.Clear();
+        UI.TypeWriteLine($"The Demon lord lays before you, clawing at the ground as it curses you.");
+        UI.TypeWriteLine($"[Demon lord] How... how did you... how dare you..! I will claw away your flesh as i gut your insides. And as your begging for mercy i will..!");
+        UI.TypeWriteLine($"");
+        Console.ReadKey();
+        Console.Clear();
+        UI.TypeWriteLine($"...");
+        Console.ReadKey();
+        UI.TypeWriteLine($"Silence echoes throughout the chambers as you plunge your weapon into the Demon lord for a final time... You had now defeated the ruler of the demon realm...");
+        UI.TypeWriteLine($"But was it worth it? Your now the strongest there... you had no choice but the kill the Demon lord or did you..?");
+        Console.ReadKey();
+        UI.TypeWriteLine($"The throne now stands empty before you...");
+        UI.TypeWriteLine($"What do you do..?");
+        Console.ReadKey();
+        Console.Clear();
+        
     }
 
     private static void NewGame(Player player)
@@ -284,7 +413,6 @@ public class Program
 
     private static void CombatChoices(Player player, Enemy enemy, Inventory inventory, Woodcutting woodcutting, Mining mining)
     {
-        
         while (true)
         {
             bool fleed = false;
@@ -302,9 +430,10 @@ public class Program
                 if (choice == "1" || choice == "melee")
                 {
                     Console.Clear();
-                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     int damage = player.CalculateDamage("melee", player, enemy, inventory);
                     enemy.RemoveHp(damage);
+                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
+                    UI.WriteLine($"{enemy.Name} took {damage} damage.");
                     player.AddXp(damage *2,1);
                     Console.ReadKey();
                     break;
@@ -312,9 +441,10 @@ public class Program
                 else if (choice == "2" || choice == "range")
                 {
                     Console.Clear();
-                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     int damage = player.CalculateDamage("range", player, enemy, inventory);
                     enemy.RemoveHp(damage);
+                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
+                    UI.WriteLine($"{enemy.Name} took {damage} damage.");
                     player.AddXp(damage *2,2);
                     Console.ReadKey();
                     break;
@@ -322,9 +452,10 @@ public class Program
                 else if (choice == "3" || choice == "magic")
                 {
                     Console.Clear();
-                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                     int damage = player.CalculateDamage("magic", player, enemy, inventory);
                     enemy.RemoveHp(damage);
+                    UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
+                    UI.WriteLine($"{enemy.Name} took {damage} damage.");
                     player.AddXp(damage *2,3);
                     Console.ReadKey();
                     break;
@@ -373,8 +504,9 @@ public class Program
             else
             {
                 int enemyDamage = enemy.CalculateDamage(null, enemy, player, null);
-                UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
                 player.RemoveHp(enemyDamage);
+                UI.ConsoleDefault(player,woodcutting, mining, inventory, enemy);
+                UI.WriteLine($"{player.Name} took {enemyDamage} damage.");
                 Console.ReadKey();
             }
             
